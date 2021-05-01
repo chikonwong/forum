@@ -8,6 +8,7 @@ from django.utils import timezone
 
 class Page(models.Model):
     page_name = models.CharField(max_length=30)
+    page_priority = models.IntegerField(default=50)
 
     # pub_date = models.DateTimeField('date publish')
 

@@ -10,7 +10,7 @@ class CustomUserCreationForm(forms.Form):
     last_name = forms.CharField(label='Enter Last name', min_length=1, max_length=150)
     password1 = forms.CharField(label='Enter password', widget=forms.PasswordInput)
     password2 = forms.CharField(label='Confirm password', widget=forms.PasswordInput)
-    groups = forms
+
     def clean_username(self):
         username = self.cleaned_data['username'].lower()
         r = User.objects.filter(username=username)

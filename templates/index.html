@@ -1,20 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>index</title>
-</head>
-<body>
-{% if latest_page_list %}
-  <ul>
-    {% for page in latest_page_list %}
-      <li><a href="/{{ page.id }}/">{{ page.page_name }}</a></li>
-    {% endfor %}
-  </ul>
-{% else %}
-  <p>No polls are page.</p>
-{% endif %}
+{% extends 'nav.html' %}
+{% block content %}
 
 
-</body>
-</html>
+  <!DOCTYPE html>
+  <html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <title>page</title>
+  </head>
+  <body>
+  {% if latest_page_list %}
+    <ul>
+      {% for page in latest_page_list %}
+        <li><a href="/{{ page.id }}/">{{ page.page_name }}</a></li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <p>No polls are page.</p>
+  {% endif %}
+
+
+  </body>
+  </html>{% endblock content %}
