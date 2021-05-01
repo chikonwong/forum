@@ -1,17 +1,29 @@
+{% include 'include/nav.html' %}
+
+<!DOCTYPE html>
 <html>
 <head>
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <title>首頁</title>
+  <title></title>
 </head>
 <body>
-    <h2>文淵閣首頁</h2>
-    {% if request.user.is_authenticated %}
-    	歡迎光臨:{{name}}
-        <p><a href="/logout/">登出</a></p>
-    {% else %}
-        <p>您尚未登入喔~</p>
-        <a href="/login/">登入</a>
-    {% endif %}
-    <span style="color:red">{{message}}</span>
+<h1>Template - base.html</h1>
+<h1>Hello Django 3</h1>
+<a href="/login">click me</a>
+<form action="" method="POST">
+  {% csrf_token %}
+  <div class="fieldWrapper">
+    <label for="{{ form.username.id_for_label }}"> Username : </label>
+    <input type="text" name="username" class="form-control">
+    {{ form.username.errors }}
+  </div>
+  <div class="fieldWrapper">
+    <label for="{{ form.password.id_for_label }}"> Password : </label>
+    <input type="password" name="password" class="form-control">
+    {{ form.password.errors }}
+  </div>
+  <br>
+  <button type="submit" class="btn btn-info"> LOGIN</button>
+  <button type="reset" class="btn btn-info"> RESET</button>
+</form>
 </body>
 </html>
