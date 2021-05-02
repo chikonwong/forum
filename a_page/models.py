@@ -29,4 +29,4 @@ class PageAdminGroup(models.Model):
     page = models.ForeignKey(Page, on_delete=models.CASCADE)
 
     def __str__(self):
-        return self.page.page_name
+        return self.group
