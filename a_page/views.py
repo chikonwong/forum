@@ -7,8 +7,8 @@ from a_page.models import Page
 # def index(request):
 #     latest_page_list = Page.objects.order_by('pub_date')
 #     context = {'latest_page_list': latest_page_list}
-#     return render(request, 'index.html', context)
+#     return render(request, 'app.html', context)
 def index(request):
     latest_page_list = Page.objects.order_by('page_name')
     context = {'latest_page_list': latest_page_list}
-    return render(request, 'index.html', context)
+    return render(request, 'app.html', context)

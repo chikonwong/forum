@@ -1,5 +1,4 @@
-<div class="col-lg-9">
-  <form action="" method="POST">
+  <form action="/signin/" method="POST">
     {% csrf_token %}
     <div class="fieldWrapper">
       <label for="{{ form.username.id_for_label }}"> Username : </label>
@@ -14,6 +13,5 @@
     <br>
     <button type="submit" class="btn btn-info"> LOGIN</button>
     <button type="reset" class="btn btn-info"> RESET</button>
-    <a href="singup.html"> signup</a>
+    <a href="/signup/"> signup</a>
   </form>
-</div>

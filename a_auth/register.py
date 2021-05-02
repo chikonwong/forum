@@ -14,4 +14,4 @@ def signup(request):
     else:
         form = CustomUserCreationForm()
 
-    return render(request, 'singup.html', {'form': form})
+    return render(request, 'signup.html', {'form': form})

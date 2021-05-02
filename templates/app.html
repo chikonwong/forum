@@ -1,0 +1,19 @@
+{#{% load static %}#}
+{#<link rel="stylesheet" type="text/css" href="{% static 'app/app.css' %}">#}
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+      integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>page</title>
+</head>
+<body>
+<div>
+  {% include 'nav.html' %}
+  {% block content %}
+  {% endblock content %}
+</div>
+</body>
+</html>
