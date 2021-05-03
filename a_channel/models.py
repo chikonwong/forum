@@ -15,7 +15,7 @@ class Channel(models.Model):
     channel_name = models.CharField(max_length=30)
     channel_priority = models.IntegerField(default=50)
 
-    status = models.SmallIntegerField(choices=status, default=0)
+    status = models.SmallIntegerField(choices=status, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
@@ -41,7 +41,7 @@ class Post(models.Model):
     post_priority = models.IntegerField(default=50)
     post_content = models.TextField()
 
-    status = models.SmallIntegerField(choices=status, default=0)
+    status = models.SmallIntegerField(choices=status, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 
@@ -60,7 +60,7 @@ class Comment(models.Model):
 
     comment = models.TextField()
 
-    status = models.SmallIntegerField(choices=status, default=0)
+    status = models.SmallIntegerField(choices=status, default=1)
     created_at = models.DateTimeField(auto_now_add=True)
     modified_at = models.DateTimeField(auto_now=True)
 

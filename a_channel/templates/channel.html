@@ -10,9 +10,9 @@
 {% block content %}
 
 
-  {% for page in  object_list %}
-    Title : {{ page.page_name }} ||
-    Author : {{ page.page_author }}
+  {% for channel in  object_list %}
+    Title : {{ channel.channel_name}} ||
+    Author : {{ channel.created_by }}
 
   {% endfor %}
   <p>Show All Pages Here</p>
