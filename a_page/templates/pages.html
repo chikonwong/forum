@@ -9,6 +9,12 @@
 <body>
 {% block content %}
 
+
+  {% for page in  object_list %}
+    Title : {{ page.page_name }} ||
+    Author : {{ page.page_author }}
+
+  {% endfor %}
   <p>Show All Pages Here</p>
 {% endblock content %}
 </body>
