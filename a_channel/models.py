@@ -34,8 +34,8 @@ class Post(models.Model):
         (1, 'Active')
     }
     post_id = models.UUIDField(primary_key=True, default=uuid.uuid4(), editable=False)
-    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
     channel = models.ForeignKey(Channel, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(User, on_delete=models.CASCADE)
 
     post_title = models.CharField(max_length=30)
     post_priority = models.IntegerField(default=50)
@@ -65,4 +65,4 @@ class Comment(models.Model):
     modified_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return self.comment_id
+        return self.comment

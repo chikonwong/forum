@@ -1,7 +1,5 @@
-from django.shortcuts import render, redirect
-
-# Create your views here.
-from a_auth.register_forms import CustomUserCreationForm
+from django.shortcuts import redirect, render
+from a_auth.forms import CustomUserCreationForm
 
 
 def signup(request):
@@ -10,7 +8,6 @@ def signup(request):
         if form.is_valid():
             form.save()
             return redirect('home')
-
     else:
         form = CustomUserCreationForm()
 
