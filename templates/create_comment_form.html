@@ -1,0 +1,14 @@
+{% load widget_tweaks %}
+
+<form action="/comment/create/" method="POST">
+    {% csrf_token %}
+    <input type="hidden" name="post_id" value="{{ post_id }}">
+    <h1>Comment</h1>
+    <label> Comment:
+        {{ comment_form.comment }}
+    </label>
+    <br>
+    <h3>{{ textmassage }}</h3>
+    <button type="submit" class="btn btn-info"> CREATE</button>
+    <button type="reset" class="btn btn-info"> RESET</button>
+</form>

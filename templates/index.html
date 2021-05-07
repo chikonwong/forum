@@ -1,0 +1,262 @@
+{% include 'include/nav.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+<html onclick="backOriginal()">
+
+<head>
+    <title>Origin-home</title>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/stylesheet.css' %}">
+    <style>
+        html,
+        body {
+            background: url("{% static 'images/pattern_background_brown.png' %}");
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: "Parchment";
+            color: #393838;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #titleDiv {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        #title {
+            width: 1000px;
+        }
+
+        /*room*/
+        #room_container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        #room1,
+        #room2,
+        #room3,
+        #room4,
+        #room5,
+        #room6 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 400px;
+            height: 140px;
+            border: 3px dashed #393838;
+            text-align: center;
+            margin: 1vw;
+        }
+
+        .icon_img {
+            width: 100px;
+            height: 100px;
+            align-self: center;
+        }
+
+        h2 {
+            font-size: 40pt;
+            align-self: center;
+        }
+
+        #room1:hover #live {
+            content: url("{% static 'images/home.gif' %}");
+        }
+
+        #room2:hover #book {
+            content: url("{% static 'images/book.gif' %}");
+        }
+
+        #room3:hover #art {
+            content: url("{% static 'images/think.gif' %}");
+        }
+
+        #room4:hover #talk {
+            content: url("{% static 'images/talk.gif' %}");
+        }
+
+        #room5:hover #news {
+            content: url("{% static 'images/news.gif' %}");
+        }
+
+        #room1:hover,
+        #room2:hover,
+        #room3:hover,
+        #room4:hover,
+        #room5:hover,
+        #room6:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /*when screen size changes*/
+        @media only screen and (max-width: 1100px) {
+            #title {
+                width: 90vw;
+            }
+        }
+
+        @media only screen and (max-width: 1500px) {
+
+            #room1,
+            #room2,
+            #room3,
+            #room4,
+            #room5,
+            #room6 {
+                flex-direction: column;
+                justify-content: center;
+                width: 350px;
+                height: auto;
+                padding-bottom: 30px;
+            }
+
+            .icon_img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            #room1,
+            #room2,
+            #room3,
+            #room4,
+            #room5,
+            #room6 {
+                flex-direction: column;
+                width: 600px;
+                height: auto;
+                padding-bottom: 30px;
+                margin-bottom: 2vw;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+
+            #room1,
+            #room2,
+            #room3,
+            #room4,
+            #room5,
+            #room6 {
+                flex-direction: column;
+                width: 85vw;
+                height: auto;
+                padding-bottom: 30px;
+                margin-bottom: 2vw;
+            }
+        }
+    </style>
+
+    <script src="{% static '/js/sript.js' %}"></script>
+
+    <script>
+        /*close all opening function*/
+        var bgClick = 0;
+        var bgClick2 = 0;
+
+        function backOriginal() {
+            if (bgClick == 1) {
+                if (searching == 0) {
+                    document.getElementById("searchbar").style.width = "0px";
+                    setTimeout(() => {
+                        document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
+                        document.getElementById("searchbar").style.visibility = "hidden";
+                        searchClick = 1;
+                        bgClick = 0;
+                    }, 1000);
+                }
+            }
+
+            if (bgClick2 == 1) {
+                if (loggingin == 0) {
+                    document.getElementById("loginbox").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("login").src = "{% static 'images/login_button.png' %}";
+                        document.getElementById("loginbox").style.visibility = "hidden";
+                        loginClick = 1;
+                        bgClick2 = 0;
+                    }, 700);
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+<p>
+    {{ testString }}
+</p>
+
+
+{#<div><a href="/createChannel/">Create Channel</a></div>#}
+
+<div id="titleDiv">
+    <img src="{% static 'images/origin_web_title_grey.png' %}" id="title"/>
+</div>
+<div id="room_container">
+    {#    {% for channel in channel_list %}#}
+    {#        <a style="text-decoration: none; color: #393838"#}
+    {#           href='/channel/{{ channel.channel_name }}/{{ channel.channel_id }}/'>#}
+    {#            <div id="room1">#}
+    {#                <h2>#}
+    {#                    {{ channel.channel_name }}#}
+    {#                </h2>#}
+    {#            </div>#}
+    {#        </a>#}
+    {#    {% endfor %}#}
+
+
+    <div id="room_container">
+        <a href="/channel/live/" style="color: #393838;text-decoration:none;">
+            <div id="room1">
+                <h2>生活</h2>
+                <img src="{% static 'images/home_icon.png' %}" class="icon_img" id="live"/>
+            </div>
+        </a>
+        <a href='/channel/book/' style="color: #393838;text-decoration:none;">
+            <div id="room2">
+                <h2>學術</h2>
+                <img src="{% static 'images/book_icon_color.png' %}" class="icon_img" id="book"/>
+            </div>
+        </a>
+        <a href='/channel/art/' style="color: #393838;text-decoration:none;">
+            <div id="room3">
+                <h2>創作</h2>
+                <img src="{% static 'images/think_icon_color_hover.png' %}" class="icon_img" id="art"/>
+            </div>
+        </a>
+        <a href='/channel/talk/' style="color: #393838;text-decoration:none;">
+            <div id="room4">
+                <h2>閒聊</h2>
+                <img src="{% static 'images/talk_icon_color.png' %}" class="icon_img" id="talk"/>
+            </div>
+        </a>
+        <a href='/channel/news/' style="color: #393838;text-decoration:none;">
+            <div id="room5">
+                <h2>最新資訊</h2>
+                <img src="{% static 'images/news_icon_color.png' %}" class="icon_img" id="news"/>
+            </div>
+        </a>
+        <a href='/channel/other/' style="color: #393838;text-decoration:none;">
+            <div id="room6">
+                <h2>其他</h2>
+            </div>
+        </a>
+    </div>
+</div>
+</body>
+</html>

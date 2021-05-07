@@ -1,0 +1,27 @@
+{% include 'include/nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title> post</title>
+</head>
+<body>
+{#<div>#}
+{#    {{ channel.channel_id }}#}
+{#</div>#}
+{% for post in post_list %}
+    <ol>
+        <ul>
+            <a href='/post/{{ post.post_id }}/'>
+                {{ post.post_title }}  ||  {{ post.channel.created_by }}
+            </a>
+
+
+        </ul>
+    </ol>
+{% endfor %}
+
+<div><a href="/post/create/{{ channel.channel_id }}/">Create Post</a></div>
+
+</body>
+</html>

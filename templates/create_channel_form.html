@@ -1,0 +1,16 @@
+{% load widget_tweaks %}
+<form action="" method="POST">
+    {% csrf_token %}
+    <h1>channel</h1>
+    <label> channel name:
+        {{ channel_form.channel_name }}
+    </label>
+    <br>
+    <label> author:
+        {{ channel_form.created_by }}
+    </label>
+    <br>
+    <h3>{{ textmassage }}</h3>
+    <button type="submit" class="btn btn-info"> CREATE</button>
+    <button type="reset" class="btn btn-info"> RESET</button>
+</form>

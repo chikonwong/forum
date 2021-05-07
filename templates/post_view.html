@@ -1,0 +1,26 @@
+{% include 'include/nav.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+{{ post.post_title }}
+<a href='/post/delete/{{ post.post_id }}/{{ post.channel.channel_id }}/{{ post.channel.channel_name }}/'>
+    Delete
+</a>
+
+<a href='/post/edit/{{ post.post_id }}/{{ post.channel.channel_id }}/{{ post.channel.channel_name }}/'>
+    Edit
+</a>
+<br>
+
+{% for comment in comment_list %}
+    {{ comment.created_by.username }} <br>
+    {{ comment.comment }}
+{% endfor %}
+
+{% include 'create_comment_form.html' %}
+</body>
+</html>
