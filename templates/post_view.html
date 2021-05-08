@@ -7,18 +7,16 @@
 </head>
 <body>
 {{ post.post_title }}
+<br>
+{{ post.post_content }}
+<br>
 <a href='/post/delete/{{ post.post_id }}/{{ post.channel.channel_id }}/{{ post.channel.channel_name }}/'>
     Delete
 </a>
-
-{#<a href='/post/edit/{{ post.post_id }}/{{ post.channel.channel_id }}/{{ post.channel.channel_name }}/'>#}
-{#    Edit#}
-{#</a>#}
 <a href='/post/edit/{{ post.post_id }}/'>
     Edit
 </a>
 <br>
-
 {% for comment in comment_list %}
     {{ comment.created_by.username }} <br>
     {{ comment.comment }}
