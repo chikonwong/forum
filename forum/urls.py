@@ -4,7 +4,9 @@ from app import views
 from django.contrib.auth import views as auth_views
 
 urlpatterns = [
+    # admin
     path('admin/', admin.site.urls),
+
     # channel
     path('', views.list_channel, name='home'),
     # path('createChannel/', views.create_channel),
@@ -12,10 +14,11 @@ urlpatterns = [
     # post
     path('channel/<str:channel_name>/', views.list_post),
     path('post/create/<str:channel_id>/', views.create_post),
-    # # post details
-    path('post/<str:post_id>/', views.view_post),
+    path('post/<str:post_id>/', views.view_post, name='view_post'),
+    path('post/edit/<str:post_id>/', views.edit_post),
     path('post/delete/<str:post_id>/<str:channel_id>/<str:channel_name>/', views.delete_post),
-    # path('post/edit/<str:post_id>/', views.edit_post),
+
+    # comment
     # path('comment/create/', views.create_comment),
 
     # auth

@@ -1,17 +1,15 @@
-{% load widget_tweaks %}
-
 <form action="" method="POST">
     {% csrf_token %}
-    <input type="hidden" name="channel_id" value="{{ channel_id }}">
-    <h1>post</h1>
-    <label> post name:
-        {{ post_form.post_title }}
-    </label>
+    <h1>Post</h1>
+
+    <label for="post_title">Post Title</label>
+    {{ post_form.post_title }}
+
     <br>
-    <label> post content:
-        {{ post_form.post_content }}
-    </label>
-    <br>
+
+    <label for="post_content">Post Content</label>
+    {{ post_form.post_content }}
+
     <h3>{{ textmassage }}</h3>
     <button type="submit" class="btn btn-info"> CREATE</button>
     <button type="reset" class="btn btn-info"> RESET</button>

@@ -58,9 +58,19 @@ def delete_post(request, post_id, channel_id, channel_name):
 
 
 def edit_post(request, post_id):
-    if request.method == 'GET':
+    if request.method == 'POST':
+        post_form = forms.PostForm(request.POST)
+        if post_form.is_valid():
+            title = post_form.cleaned_data['post_title']
+            content = post_form.cleaned_data['post_content']
+            post = Post.objects.get(pk=post_id)
+            post.post_title = title
+            post.post_content = content
+            post.save()
+            return redirect('view_post', post_id=post_id)
+    else:
         post = Post.objects.get(post_id=post_id)
-        post_form = forms.PostForm()
+        post_form = forms.PostForm(initial={'post_title': post.post_title, 'post_content': post.post_content})
         return render(request, "edit_post_form.html", locals())
 
 
