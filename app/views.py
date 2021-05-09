@@ -47,6 +47,10 @@ def view_post(request, post_id):
         post = Post.objects.get(post_id=post_id)
         comment_list = Comment.objects.filter(post=post).order_by('-created_at')
         comment_form = forms.CommentForm()
+        if request.user == post.created_by:
+            visible = 1
+        else:
+            visible = 0
         return render(request, 'post_view.html', locals())
 
 

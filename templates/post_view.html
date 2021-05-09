@@ -157,12 +157,14 @@
                 </div>
                 <div id="sub_postbox2">
                     {% if request.user.is_authenticated %}
-                        <a href='/post/edit/{{ post.post_id }}/'>
-                            <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit"/>
-                        </a>
-                        <a href='/post/delete/{{ post.post_id }}/'>
-                            <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete"/>
-                        </a>
+                        {% if visible == 1 %}
+                            <a href='/post/edit/{{ post.post_id }}/'>
+                                <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit"/>
+                            </a>
+                            <a href='/post/delete/{{ post.post_id }}/'>
+                                <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete"/>
+                            </a>
+                        {% endif %}
                     {% endif %}
                 </div>
             </div>
