@@ -1,27 +1,176 @@
 {% include 'include/nav.html' %}
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
-{{ post.post_title }}
-<br>
-{{ post.post_content }}
-<br>
-<a href='/post/delete/{{ post.post_id }}/{{ post.channel.channel_id }}/{{ post.channel.channel_name }}/'>
-    Delete
-</a>
-<a href='/post/edit/{{ post.post_id }}/'>
-    Edit
-</a>
-<br>
-{% for comment in comment_list %}
-    {{ comment.created_by.username }} <br>
-    {{ comment.comment }}
-{% endfor %}
+    <title>post</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
 
-{% include 'create_comment_form.html' %}
+        .sub_container {
+            display: flex;
+            flex-direction: column;
+            width: 1000px;
+            background-color: rgba(255, 255, 255, 0.4);
+            margin-top: 20px;
+        }
+
+        .postbox {
+            display: flex;
+            flex-direction: column;
+            background-color: rgba(255, 255, 255, 0.7);
+            margin: 10px;
+        }
+
+        .sub_postbox {
+            display: flex;
+            flex-direction: row;
+        }
+
+        #sub_postbox1 {
+            width: 90%;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #sub_postbox2 {
+            width: 120px;
+            margin-top: 10px;
+            opacity: 0.7;
+        }
+
+        #p1 {
+            font-family: 'Pangolin', cursive;
+            font-size: 40pt;
+            color: #000000;
+            padding-top: 0.5vw;
+        }
+
+        #p2 {
+            font-size: 15pt;
+        }
+
+        #p3 {
+            font-family: 'Pangolin', cursive;
+            font-size: 20pt;
+            color: #393838;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .icon {
+            width: 50px;
+            height: 50px;
+        }
+
+        #edit:hover {
+            content: url("{% static 'images/edit_icon_hover.png' %}");
+            opacity: 1;
+        }
+
+        #delete:hover {
+            content: url("{% static 'images/delete_icon_hover2.png' %}");
+            opacity: 1;
+        }
+
+        #c1 {
+            font-family: 'Pangolin', cursive;
+            font-size: 20pt;
+            color: #393838;
+            padding-top: 0.5vw;
+        }
+
+        #c2 {
+            font-size: 15pt;
+            color: #393838;
+        }
+
+        #c3 {
+            font-family: 'Pangolin', cursive;
+            font-size: 20pt;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+
+        #commentbox {
+            background-color: rgba(255, 255, 255, 0.3);
+        }
+
+        #create_commentbox {
+            margin: 15px;
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .sub_container {
+                width: 91vw;
+            }
+        }
+
+        @media only screen and (max-width: 900px) {
+            #sub_postbox1 {
+                width: 85%;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+            #sub_postbox1 {
+                width: 80%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="sub_container">
+        <div class="postbox">
+            <div class="sub_postbox">
+                <div id="sub_postbox1">
+                    <div id="p1">{{ post.post_title }}</div>
+                    <div id="p2">by {{ post.channel.created_by }}, {{ post.channel.created_at }}</div>
+                </div>
+                <div id="sub_postbox2">
+                    <a
+                            href='/post/edit/{{ post.post_id }}/'>
+                        <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit"/>
+                    </a>
+                    <a
+                            href='/post/delete/{{ post.post_id }}/'>
+                        <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete"/>
+                    </a>
+                </div>
+            </div>
+            <div id="p3">{{ post.post_content }}</div>
+        </div>
+        <div id="commentbox">
+
+            {% for comment in comment_list %}
+                <div id="c1">{{ comment.created_by.username }}</div>
+                <div id="c2">{{ comment.created_at }}</div>
+                <div id="c3">{{ comment.comment }}</div>
+            {% endfor %}
+        </div>
+        <div id="create_commentbox">
+            {% if request.user.is_authenticated %}
+                {% include 'create_comment_form.html' %}
+            {% endif %}
+        </div>
+    </div>
+</div>
 </body>
+
 </html>

@@ -6,28 +6,18 @@
 
 <head>
     <title>Origin-home</title>
-    <link rel="stylesheet" type="text/css" href="{% static '/css/stylesheet.css' %}">
     <style>
-        html,
-        body {
-            background: url("{% static 'images/pattern_background_brown.png' %}");
-            width: 100%;
-            height: 100%;
-            background-size: cover;
-            margin: 0;
-            padding: 0;
-            font-family: "Parchment";
-            color: #393838;
-        }
-
         .container {
             display: flex;
             flex-direction: column;
         }
 
         #titleDiv {
+            height: auto;
             display: flex;
             justify-content: space-around;
+            transition: height 800ms;
+            overflow: hidden;
         }
 
         #title {
@@ -57,6 +47,8 @@
             border: 3px dashed #393838;
             text-align: center;
             margin: 1vw;
+            transition: height 800ms;
+            overflow: hidden;
         }
 
         .icon_img {
@@ -74,7 +66,7 @@
             content: url("{% static 'images/home.gif' %}");
         }
 
-        #room2:hover #book {
+        #room2:hover #academic {
             content: url("{% static 'images/book.gif' %}");
         }
 
@@ -88,6 +80,10 @@
 
         #room5:hover #news {
             content: url("{% static 'images/news.gif' %}");
+        }
+
+        #room6:hover #others {
+            content: url("{% static 'images/other.gif' %}");
         }
 
         #room1:hover,
@@ -163,100 +159,74 @@
     <script src="{% static '/js/sript.js' %}"></script>
 
     <script>
-        /*close all opening function*/
-        var bgClick = 0;
-        var bgClick2 = 0;
+        function room1Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/live/';
+            }, 0);
+        }
 
-        function backOriginal() {
-            if (bgClick == 1) {
-                if (searching == 0) {
-                    document.getElementById("searchbar").style.width = "0px";
-                    setTimeout(() => {
-                        document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
-                        document.getElementById("searchbar").style.visibility = "hidden";
-                        searchClick = 1;
-                        bgClick = 0;
-                    }, 1000);
-                }
-            }
+        function room2Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/academic/';
+            }, 0);
+        }
 
-            if (bgClick2 == 1) {
-                if (loggingin == 0) {
-                    document.getElementById("loginbox").style.height = "0px";
-                    setTimeout(() => {
-                        document.getElementById("login").src = "{% static 'images/login_button.png' %}";
-                        document.getElementById("loginbox").style.visibility = "hidden";
-                        loginClick = 1;
-                        bgClick2 = 0;
-                    }, 700);
-                }
-            }
+        function room3Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/art/';
+            }, 0);
+        }
+
+        function room4Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/talk/';
+            }, 0);
+        }
+
+        function room5Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/news/';
+            }, 0);
+        }
+
+        function room6Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/others/';
+            }, 0);
         }
     </script>
 </head>
 
 <body>
-
-<p>
-    {{ testString }}
-</p>
-
-
-{#<div><a href="/createChannel/">Create Channel</a></div>#}
-
 <div id="titleDiv">
     <img src="{% static 'images/origin_web_title_grey.png' %}" id="title"/>
 </div>
 <div id="room_container">
-    {#    {% for channel in channel_list %}#}
-    {#        <a style="text-decoration: none; color: #393838"#}
-    {#           href='/channel/{{ channel.channel_name }}/{{ channel.channel_id }}/'>#}
-    {#            <div id="room1">#}
-    {#                <h2>#}
-    {#                    {{ channel.channel_name }}#}
-    {#                </h2>#}
-    {#            </div>#}
-    {#        </a>#}
-    {#    {% endfor %}#}
-
-
-    <div id="room_container">
-        <a href="/channel/live/" style="color: #393838;text-decoration:none;">
-            <div id="room1">
-                <h2>生活</h2>
-                <img src="{% static 'images/home_icon.png' %}" class="icon_img" id="live"/>
-            </div>
-        </a>
-        <a href='/channel/book/' style="color: #393838;text-decoration:none;">
-            <div id="room2">
-                <h2>學術</h2>
-                <img src="{% static 'images/book_icon_color.png' %}" class="icon_img" id="book"/>
-            </div>
-        </a>
-        <a href='/channel/art/' style="color: #393838;text-decoration:none;">
-            <div id="room3">
-                <h2>創作</h2>
-                <img src="{% static 'images/think_icon_color_hover.png' %}" class="icon_img" id="art"/>
-            </div>
-        </a>
-        <a href='/channel/talk/' style="color: #393838;text-decoration:none;">
-            <div id="room4">
-                <h2>閒聊</h2>
-                <img src="{% static 'images/talk_icon_color.png' %}" class="icon_img" id="talk"/>
-            </div>
-        </a>
-        <a href='/channel/news/' style="color: #393838;text-decoration:none;">
-            <div id="room5">
-                <h2>最新資訊</h2>
-                <img src="{% static 'images/news_icon_color.png' %}" class="icon_img" id="news"/>
-            </div>
-        </a>
-        <a href='/channel/other/' style="color: #393838;text-decoration:none;">
-            <div id="room6">
-                <h2>其他</h2>
-            </div>
-        </a>
+    <div id="room1" onclick="room1Onclick()">
+        <h2>生活</h2>
+        <img src="{% static 'images/home_icon.png' %}" class="icon_img" id="live"/>
+    </div>
+    <div id="room2" onclick="room2Onclick()">
+        <h2>學術</h2>
+        <img src="{% static 'images/book_icon_color.png' %}" class="icon_img" id="academic"/>
+    </div>
+    <div id="room3" onclick="room3Onclick()">
+        <h2>創作</h2>
+        <img src="{% static 'images/think_icon_color_hover.png' %}" class="icon_img" id="art"/>
+    </div>
+    <div id="room4" onclick="room4Onclick()">
+        <h2>閒聊</h2>
+        <img src="{% static 'images/talk_icon_color.png' %}" class="icon_img" id="talk"/>
+    </div>
+    <div id="room5" onclick="room5Onclick()">
+        <h2>最新資訊</h2>
+        <img src="{% static 'images/news_icon_color.png' %}" class="icon_img" id="news"/>
+    </div>
+    <div id="room6" onclick="room6Onclick()">
+        <h2>其他</h2>
+        <img src="{% static 'images/other.png' %}" class="icon_img" id="others"/>
     </div>
 </div>
 </body>
+
 </html>

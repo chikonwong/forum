@@ -4,193 +4,22 @@
 
 <head>
     <link rel="stylesheet" type="text/css" href="{% static '/css/stylesheet.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Itim&family=Pangolin&display=swap"
+          rel="stylesheet">
     <style>
         html,
         body {
-            background: url("{% static 'images/pattern_background_brown.png' %}");
+            background: url("{% static 'images/pattern_background.gif' %}");
             width: 100%;
             height: 100%;
             background-size: cover;
             margin: 0;
             padding: 0;
-            font-family: "Parchment";
+            font-family: 'Dancing Script', cursive;
             color: #393838;
         }
 
-        .container {
-            display: flex;
-            flex-direction: column;
-        }
-
-        #titleDiv {
-            display: flex;
-            justify-content: space-around;
-        }
-
-        #title {
-            width: 1000px;
-        }
-
-        /*room*/
-        #room_container {
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            flex-wrap: wrap;
-            margin-bottom: 50px;
-        }
-
-        #room1,
-        #room2,
-        #room3,
-        #room4,
-        #room5,
-        #room6 {
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            width: 400px;
-            height: 140px;
-            border: 3px dashed #393838;
-            text-align: center;
-            margin: 1vw;
-        }
-
-        .icon_img {
-            width: 100px;
-            height: 100px;
-            align-self: center;
-        }
-
-        h2 {
-            font-size: 40pt;
-            align-self: center;
-        }
-
-        #room1:hover #live {
-            content: url("{% static 'images/home.gif' %}");
-        }
-
-        #room2:hover #book {
-            content: url("{% static 'images/book.gif' %}");
-        }
-
-        #room3:hover #art {
-            content: url("{% static 'images/think.gif' %}");
-        }
-
-        #room4:hover #talk {
-            content: url("{% static 'images/talk.gif' %}");
-        }
-
-        #room5:hover #news {
-            content: url("{% static 'images/news.gif' %}");
-        }
-
-        #room1:hover,
-        #room2:hover,
-        #room3:hover,
-        #room4:hover,
-        #room5:hover,
-        #room6:hover {
-            background-color: rgba(255, 255, 255, 0.5);
-        }
-
-        /*when screen size changes*/
-        @media only screen and (max-width: 1100px) {
-            #title {
-                width: 90vw;
-            }
-        }
-
-        @media only screen and (max-width: 1500px) {
-
-            #room1,
-            #room2,
-            #room3,
-            #room4,
-            #room5,
-            #room6 {
-                flex-direction: column;
-                justify-content: center;
-                width: 350px;
-                height: auto;
-                padding-bottom: 30px;
-            }
-
-            .icon_img {
-                width: 150px;
-                height: 150px;
-            }
-        }
-
-        @media only screen and (max-width: 800px) {
-
-            #room1,
-            #room2,
-            #room3,
-            #room4,
-            #room5,
-            #room6 {
-                flex-direction: column;
-                width: 600px;
-                height: auto;
-                padding-bottom: 30px;
-                margin-bottom: 2vw;
-            }
-        }
-
-        @media only screen and (max-width: 700px) {
-
-            #room1,
-            #room2,
-            #room3,
-            #room4,
-            #room5,
-            #room6 {
-                flex-direction: column;
-                width: 85vw;
-                height: auto;
-                padding-bottom: 30px;
-                margin-bottom: 2vw;
-            }
-        }
-    </style>
-
-    <script src="{% static '/js/sript.js' %}"></script>
-
-    <script>
-        /*close all opening function*/
-        var bgClick = 0;
-        var bgClick2 = 0;
-
-        function backOriginal() {
-            if (bgClick == 1) {
-                if (searching == 0) {
-                    document.getElementById("searchbar").style.width = "0px";
-                    setTimeout(() => {
-                        document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
-                        document.getElementById("searchbar").style.visibility = "hidden";
-                        searchClick = 1;
-                        bgClick = 0;
-                    }, 1000);
-                }
-            }
-
-            if (bgClick2 == 1) {
-                if (loggingin == 0) {
-                    document.getElementById("loginbox").style.height = "0px";
-                    setTimeout(() => {
-                        document.getElementById("login").src = "{% static 'images/login_button.png' %}";
-                        document.getElementById("loginbox").style.visibility = "hidden";
-                        loginClick = 1;
-                        bgClick2 = 0;
-                    }, 700);
-                }
-            }
-        }
-    </script>
-    <style>
         .bar {
             display: flex;
             flex-direction: row;
@@ -231,8 +60,6 @@
             height: 0px;
             transition: height 800ms;
             border: solid 0px transparent;
-            padding-left: 10px;
-            padding-right: 5px;
             background-color: rgba(255, 255, 255, 0.4);
             overflow: hidden;
         }
@@ -251,12 +78,13 @@
         }
 
         .menu li {
-            height: 70px;
+            height: 60px;
             text-align: center;
+            padding-top: 10px;
         }
 
         .menu li:hover {
-            background-color: #7e7d7d;
+            background-color: rgba(245, 79, 79, 0.6);
         }
 
         .menu li:hover a {
@@ -265,12 +93,11 @@
         }
 
         .menu a {
-            font-size: 40pt;
+            font-size: 25pt;
             text-align: center;
             text-decoration: none;
-            padding: 10px 20px;
-            color: #393838;
-            text-shadow: 2px 2px 10px white;
+            color: #393938;
+            text-shadow: 4px 4px 10px white;
         }
 
         /*search*/
@@ -336,12 +163,18 @@
             overflow: hidden;
         }
 
+        #inputBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
         .closebox {
             height: 0;
         }
 
         label {
-            font-size: 40pt;
+            font-size: 20pt;
         }
 
         #login:hover {
@@ -365,20 +198,20 @@
             border: 0px solid transparent;
             border-radius: 10px;
             margin-left: 2px;
-            font-family: "Parchment";
-            font-size: 35pt;
+            font-family: 'Dancing Script', cursive;
+            font-size: 20pt;
             align-self: center;
             text-align: center;
             background-color: rgba(30, 180, 30, 0.6);
             color: rgba(255, 255, 255, 1);
-            box-shadow: 4px 4px 20px rgba(255, 248, 220, 0.8);
+            box-shadow: 4px 4px 10px rgba(255, 248, 220, 0.8);
         }
 
         #ok_button:hover {
             background-color: rgba(36, 206, 36, 0.6);
             color: rgba(255, 255, 255, 1);
-            text-shadow: 2px 2px 20px rgba(255, 255, 255, 1);
-            box-shadow: 4px 4px 20px rgba(255, 248, 220, 0.8);
+            text-shadow: 4px 4px 10px rgba(255, 255, 255, 1);
+            box-shadow: 4px 4px 10px rgba(255, 248, 220, 0.8);
         }
 
         /*signup*/
@@ -396,6 +229,12 @@
         }
 
         /*input box border*/
+        input {
+            height: 35px;
+            opacity: 0.8;
+            border: 0px solid transparent;
+        }
+
         .input {
             border-radius: 20px;
         }
@@ -404,6 +243,8 @@
             height: 30px;
         }
     </style>
+
+    <script src="{% static '/js/sript.js' %}"></script>
 
     <script>
         /* check screen size * /
@@ -470,7 +311,7 @@
                         bgClick = 0;
 
                         document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-                        document.getElementById("menu_list").style.height = "200px";
+                        document.getElementById("menu_list").style.height = "410px";
                         document.getElementById("menu_list").style.visibility = "visible";
                         menuClick = 0;
                         setTimeout(() => {
@@ -479,7 +320,7 @@
                     }, 1000);
                 } else {
                     document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-                    document.getElementById("menu_list").style.height = "200px";
+                    document.getElementById("menu_list").style.height = "410px";
                     document.getElementById("menu_list").style.visibility = "visible";
                     menuClick = 0;
                     setTimeout(() => {
@@ -639,26 +480,45 @@
 <body>
 <div class="bar">
     <div id="iconAndMenu_div">
-{#        <div id="icon_div">#}
-{#            <img src="{% static 'images/menubar_icon.png' %}" id="menu_icon" onclick="openMenu()"/>#}
-{#            <img src="{% static 'images/search_icon.png' %}" id="search" onclick="searchOnClick()"/>#}
-{#            <input type="search" value="search" result="5" id="searchbar" class="input" onclick="alertSearch()">#}
-{#        </div>#}
-{#        <div id="menu_list">#}
-{#            <ul class="menu">#}
-{#                <li onclick="alertMenu()">#}
-{#                    <a href='/home/' onclick="alertMenu()">home</a>#}
-{#                </li>#}
-{#                <li onclick="alertMenu()">#}
-{#                    <a href='/home/' onclick="alertMenu()">home</a>#}
-{#                </li>#}
-{#                <li onclick="alertMenu()">#}
-{#                    <a href='/home/' onclick="alertMenu()">home</a>#}
-{#                </li>#}
-{#            </ul>#}
-{#        </div>#}
+        {#            Left #}
+        <div id="icon_div">
+            <img src="{% static 'images/menubar_icon.png' %}" id="menu_icon" onclick="openMenu()"/>
+            <img src="{% static 'images/search_icon.png' %}" id="search" onclick="searchOnClick()"/>
+            <input type="search" value="search" result="5" id="searchbar" class="input" onclick="alertSearch()">
+        </div>
+        <div id="menu_list">
+            <ul class="menu">
+                <li onclick="alertMenu()">
+                    <a href='/home/' onclick="alertMenu()">home</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/live/' onclick="alertMenu()">live</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/academic/' onclick="alertMenu()">academic</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/art/' onclick="alertMenu()">art</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/news/' onclick="alertMenu()">news</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/others/' onclick="alertMenu()">others</a>
+                </li>
+            </ul>
+        </div>
     </div>
+    {#    Right #}
     <div id="imgButtonDiv">
+
+        <div style="order: 3;margin: auto;font-size: 3em">
+            {% if request.user.is_authenticated %}
+                {{ request.user.username }}
+            {% endif %}
+        </div>
+
+        {#        Login #}
         <div id="loginDiv">
             <div id="loginbtnDiv">
                 {% if request.user.is_authenticated %}
@@ -668,13 +528,14 @@
                     <img src="{% static 'images/login_button.png' %}" id="login" onclick="loginOnClick()"/>
                 {% endif %}
             </div>
-            {% if request.user.is_authenticated %}
-                <div>{{ request.user.username }}</div>
-            {% else %}
+            {#            User name #}
+
+            {% if not request.user.is_authenticated %}
+                {#                    Login Form #}
                 <form action="/login/" method="POST">
                     {% csrf_token %}
                     <div id="loginbox">
-                        <div>
+                        <div id="inputBox">
                             <div class="fieldWrapper">
                                 <label for="{{ form.username.id_for_label }}">username: </label>
                                 <input type="text" name="username" class="input2 form-control"
@@ -686,17 +547,24 @@
                                        required="required"><br/>
                             </div>
                         </div>
-                        <button type="submit" name="ok" id="ok_button" class="btn btn-info">
-                        </button>
+                        <button type="submit" name="ok" id="ok_button" class="btn btn-info">ok</button>
                     </div>
                 </form>
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
             {% endif %}
         </div>
+        {#        Sign up #}
+
         <div id="signupDiv">
-            <a href='/signup/'><img src="{% static 'images/signup_button.png' %}" id="signup"
-                                    onclick="signupOnClick()"/></a>
+            {% if not request.user.is_authenticated %}
+                <a href='/signup/'><img src="{% static 'images/signup_button.png' %}" id="signup"
+                                        onclick="signupOnClick()"/></a>
+            {% endif %}
         </div>
     </div>
+
 </div>
 </body>
 

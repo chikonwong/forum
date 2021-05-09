@@ -50,11 +50,13 @@ def view_post(request, post_id):
         return render(request, 'post_view.html', locals())
 
 
-def delete_post(request, post_id, channel_id, channel_name):
+def delete_post(request, post_id):
     if request.method == 'GET':
         post = Post.objects.get(post_id=post_id)
+        comment_list = Comment.objects.filter(post=post)
+        comment_list.delete()
         post.delete()
-        return redirect('/')
+        return redirect('/channel/' + post.channel.channel_name + '/')
 
 
 def edit_post(request, post_id):

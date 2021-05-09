@@ -1,0 +1,30 @@
+[
+  {
+    "model": "app.Channel",
+    "fields": {
+      "channel_name": "eating",
+      "created_by": "admin"
+    }
+  },
+  {
+    "model": "app.Channel",
+    "fields": {
+      "channel_name": "housing",
+      "created_by": "admin"
+    }
+  },
+  {
+    "model": "app.Channel",
+    "fields": {
+      "channel_name": "shopping",
+      "created_by": "admin"
+    }
+  },
+  {
+    "model": "app.Channel",
+    "fields": {
+      "channel_name": "resting",
+      "created_by": "admin"
+    }
+  }
+]
