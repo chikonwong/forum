@@ -35,13 +35,8 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-<<<<<<< HEAD:forum/settings.py
-    'a_channel',
-    'a_auth',
-=======
     'widget_tweaks',
     'app'
->>>>>>> css-refactor:Forum/settings.py
 ]
 
 MIDDLEWARE = [
@@ -59,7 +54,7 @@ ROOT_URLCONF = 'forum.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'templates')]
+        'DIRS': [BASE_DIR / 'templates']
         ,
         'APP_DIRS': True,
         'OPTIONS': {
@@ -120,13 +115,6 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = '/static/'
-<<<<<<< HEAD:forum/settings.py
-STATICFILES_DIRS = [
-    os.path.join(BASE_DIR, 'static')
-]
-
-LOGIN_REDIRECT_URL = 'home'
-=======
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -137,4 +125,3 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR), 'static']
 LOGIN_REDIRECT_URL = 'home'
 LOGOUT_REDIRECT_URL = 'home'
 MEDIA_URL = '/images/'
->>>>>>> css-refactor:Forum/settings.py

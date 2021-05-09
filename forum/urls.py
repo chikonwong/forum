@@ -1,18 +1,4 @@
 from django.contrib import admin
-<<<<<<< HEAD
-from django.urls import path, include
-
-from a_channel.views import ListChannel
-
-urlpatterns = [
-    # Admin
-    path('admin/', admin.site.urls),
-    # Home
-    path('', ListChannel.as_view(), name='home'),
-    # Urls
-    path('', include('a_auth.urls')),
-    path('channel/', include('a_channel.urls'))
-=======
 from django.urls import path
 from app import views
 from django.contrib.auth import views as auth_views
@@ -51,5 +37,4 @@ urlpatterns = [
     path('home/others/', auth_views.LoginView.as_view(template_name='others.html'), name='others'),
     path('signup/', views.signup, name='signup'),
     path('logout/', auth_views.LogoutView.as_view(template_name='logout.html'), name='logout')
->>>>>>> css-refactor
 ]
