@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="{% static '/css/stylesheet.css' %}">
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Itim&family=Pangolin&display=swap"
-          rel="stylesheet">
+        rel="stylesheet">
     <style>
         html,
         body {
@@ -312,7 +312,7 @@
                         bgClick = 0;
 
                         document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-                        document.getElementById("menu_list").style.height = "420px";
+                        document.getElementById("menu_list").style.height = "490px";
                         document.getElementById("menu_list").style.visibility = "visible";
                         menuClick = 0;
                         setTimeout(() => {
@@ -321,7 +321,7 @@
                     }, 1000);
                 } else {
                     document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-                    document.getElementById("menu_list").style.height = "420px";
+                    document.getElementById("menu_list").style.height = "490px";
                     document.getElementById("menu_list").style.visibility = "visible";
                     menuClick = 0;
                     setTimeout(() => {
@@ -508,63 +508,63 @@
 </head>
 
 <body>
-<div class="bar">
-    <div id="iconAndMenu_div">
-        {#            Left #}
-        <div id="icon_div">
-            <img src="{% static 'images/menubar_icon.png' %}" id="menu_icon" onclick="openMenu()"/>
-            <img src="{% static 'images/search_icon.png' %}" id="search" onclick="searchOnClick()"/>
-            <input type="search" value="search" result="5" id="searchbar" class="input" onclick="alertSearch()">
+    <div class="bar">
+        <div id="iconAndMenu_div">
+            {# Left #}
+            <div id="icon_div">
+                <img src="{% static 'images/menubar_icon.png' %}" id="menu_icon" onclick="openMenu()" />
+                <img src="{% static 'images/search_icon.png' %}" id="search" onclick="searchOnClick()" />
+                <input type="search" value="search" result="5" id="searchbar" class="input" onclick="alertSearch()">
+            </div>
+            <div id="menu_list">
+                <ul class="menu">
+                    <li onclick="alertMenu(), toHome()">
+                        <span>home</span>
+                    </li>
+                    <li onclick="alertMenu(), toLive()">
+                        <span>live</span>
+                    </li>
+                    <li onclick="alertMenu(), toAcademic()">
+                        <span>academic</span>
+                    </li>
+                    <li onclick="alertMenu(), toCreation()">
+                        <span>creation</span>
+                    </li>
+                    <li onclick="alertMenu(), toChat()">
+                        <span>chat</span>
+                    </li>
+                    <li onclick="alertMenu(), toNews()">
+                        <span>news</span>
+                    </li>
+                    <li onclick="alertMenu(), toOthers()">
+                        <span>others</span>
+                    </li>
+                </ul>
+            </div>
         </div>
-        <div id="menu_list">
-            <ul class="menu">
-                <li onclick="alertMenu(), toHome()">
-                    <span>home</span>
-                </li>
-                <li onclick="alertMenu(), toLive()">
-                    <span>live</span>
-                </li>
-                <li onclick="alertMenu(), toAcademic()">
-                    <span>academic</span>
-                </li>
-                <li onclick="alertMenu(), toCreation()">
-                    <span>creation</span>
-                </li>
-                <li onclick="alertMenu(), toChat()">
-                    <span>chat</span>
-                </li>
-                <li onclick="alertMenu(), toNews()">
-                    <span>news</span>
-                </li>
-                <li onclick="alertMenu(), toOthers()">
-                    <span>others</span>
-                </li>
-            </ul>
-        </div>
-    </div>
-    {#    Right #}
-    <div id="imgButtonDiv">
+        {# Right #}
+        <div id="imgButtonDiv">
 
-        <div style="order: 3;margin-right: 0.5vw;font-size: 2em; align-self: center;">
-            {% if request.user.is_authenticated %}
-                {{ request.user.username }}
-            {% endif %}
-        </div>
-
-        {#        Login #}
-        <div id="loginDiv">
-            <div id="loginbtnDiv">
+            <div style="order: 3;margin-right: 1vw;font-size: 2em; align-self: center;">
                 {% if request.user.is_authenticated %}
-                    <a href='/logout/'><img src="{% static 'images/logout_button.png' %}" id="logout"
-                                            onclick="loginOnClick()"/></a>
-                {% else %}
-                    <img src="{% static 'images/login_button.png' %}" id="login" onclick="loginOnClick()"/>
+                {{ request.user.username }}
                 {% endif %}
             </div>
-            {#            User name #}
 
-            {% if not request.user.is_authenticated %}
-                {#                    Login Form #}
+            {# Login #}
+            <div id="loginDiv">
+                <div id="loginbtnDiv">
+                    {% if request.user.is_authenticated %}
+                    <a href='/logout/'><img src="{% static 'images/logout_button.png' %}" id="logout"
+                            onclick="loginOnClick()" /></a>
+                    {% else %}
+                    <img src="{% static 'images/login_button.png' %}" id="login" onclick="loginOnClick()" />
+                    {% endif %}
+                </div>
+                {# User name #}
+
+                {% if not request.user.is_authenticated %}
+                {# Login Form #}
                 <form action="/login/" method="POST">
                     {% csrf_token %}
                     <div id="loginbox">
@@ -572,33 +572,33 @@
                             <div class="fieldWrapper">
                                 <label for="{{ form.username.id_for_label }}">username: </label>
                                 <input type="text" name="username" class="input2 form-control"
-                                       required="required"><br/>
+                                    required="required"><br />
                             </div>
                             <div class="fieldWrapper">
                                 <label for="{{ form.password.id_for_label }}">password: </label>
                                 <input type="password" name="password" class="input2 form-control"
-                                       required="required"><br/>
+                                    required="required"><br />
                             </div>
                         </div>
                         <button type="submit" name="ok" id="ok_button" class="btn btn-info">ok</button>
                     </div>
                 </form>
                 {% if form.errors %}
-                    <p>Your username and password didn't match. Please try again.</p>
+                <p>Your username and password didn't match. Please try again.</p>
                 {% endif %}
-            {% endif %}
-        </div>
-        {#        Sign up #}
+                {% endif %}
+            </div>
+            {# Sign up #}
 
-        <div id="signupDiv">
-            {% if not request.user.is_authenticated %}
+            <div id="signupDiv">
+                {% if not request.user.is_authenticated %}
                 <a href='/signup/'><img src="{% static 'images/signup_button.png' %}" id="signup"
-                                        onclick="signupOnClick()"/></a>
-            {% endif %}
+                        onclick="signupOnClick()" /></a>
+                {% endif %}
+            </div>
         </div>
-    </div>
 
-</div>
+    </div>
 </body>
 
 </html>

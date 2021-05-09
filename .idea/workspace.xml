@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="396691c9-d72f-412d-b777-8cfd671d5229" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/static/images/academia.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/affairs.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/art.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/drawing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/finance.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/finance.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/health.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/hobby.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/music.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/question_mark_color.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/technology.PNG" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/technology.gif" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/static/images/writing.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/chat.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/forum.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/forum.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/admin.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/apps.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/apps.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0001_initial.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0001_initial.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0002_auto_20210505_1510.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0002_auto_20210505_1510.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0003_auto_20210505_1510.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0003_auto_20210505_1510.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0004_auto_20210505_1510.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0004_auto_20210505_1510.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0005_auto_20210505_1510.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0005_auto_20210505_1510.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0006_auto_20210506_2135.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0006_auto_20210506_2135.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/0007_auto_20210506_2229.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/0007_auto_20210506_2229.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/migrations/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/migrations/__init__.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/app/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/forum/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/forum/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/academic.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/academic.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/art.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/creation.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create_channel_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_channel_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create_comment_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_comment_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/create_post_form.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/create_post_form.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/include/nav.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/include/nav.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/live.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/live.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/news.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/news.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/others.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/others.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post_list.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post_list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/post_view.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/post_view.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/signup.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/signup.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/talk.html" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectId" id="1sIdGTqbMKJGQw8raNNefHwMKFe" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunManager">
+    <configuration name="forum" type="Python.DjangoServer" factoryName="Django server">
+      <module name="forum" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="launchJavascriptDebuger" value="false" />
+      <option name="port" value="8000" />
+      <option name="host" value="" />
+      <option name="additionalOptions" value="" />
+      <option name="browserUrl" value="" />
+      <option name="runTestServer" value="false" />
+      <option name="runNoReload" value="false" />
+      <option name="useCustomRunCommand" value="false" />
+      <option name="customRunCommand" value="" />
+      <method v="2" />
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="396691c9-d72f-412d-b777-8cfd671d5229" name="Default Changelist" comment="" />
+      <created>1620563942682</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1620563942682</updated>
+      <workItem from="1620563944190" duration="680000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+</project>

@@ -9,12 +9,12 @@ class ChannelForm(forms.Form):
 
 
 class PostForm(forms.Form):
-    post_title = forms.CharField(max_length=30)
-    post_content = forms.CharField(max_length=1000)
+    post_title = forms.CharField(max_length=100)
+    post_content = forms.CharField(max_length=2000, widget=forms.Textarea(attrs={'rows': 20, 'cols': 40}))
 
 
 class CommentForm(forms.Form):
-    comment = forms.CharField(max_length=500)
+    comment = forms.CharField(max_length=500, widget=forms.Textarea(attrs={'rows': 4, 'cols': 40}))
 
 
 class UserForm(forms.Form):

@@ -12,6 +12,10 @@
             flex-direction: column;
         }
 
+        h1 {
+            font-size: 40pt;
+            align-self: center;
+        }
 
         /*room*/
         #room_container {
@@ -48,7 +52,7 @@
         }
 
         .icon_img {
-            width: 150px;
+            width: 160px;
             height: 150px;
             align-self: center;
         }
@@ -118,35 +122,38 @@
 </head>
 
 <body>
-<div id="room_container">
-    <div id="room_container_sub">
-        <a href="/channel/eating/" style="color: #393838;text-decoration:none;">
-            <div id="room1">
-                <h2>Eating</h2>
-                <img src="{% static 'images/eating_color.png' %}" class="icon_img" id="eating"/>
+    <div class="container">
+        <h1>Live</h1>
+        <div id="room_container">
+            <div id="room_container_sub">
+                <a href="/channel/eating/" style="color: #393838;text-decoration:none;">
+                    <div id="room1">
+                        <h2>Eating</h2>
+                        <img src="{% static 'images/eating_color.png' %}" class="icon_img" id="eating" />
+                    </div>
+                </a>
+                <a href='/channel/shopping/' style="color: #393838;text-decoration:none;">
+                    <div id="room2">
+                        <h2>Shopping</h2>
+                        <img src="{% static 'images/shopping_color.png' %}" class="icon_img" id="shopping" />
+                    </div>
+                </a>
+                <a href='/channel/housing/' style="color: #393838;text-decoration:none;">
+                    <div id="room3">
+                        <h2>Housing</h2>
+                        <img src="{% static 'images/housing_color.png' %}" class="icon_img" id="housing" />
+                    </div>
+                </a>
+                <a href='/channel/resting/' style="color: #393838;text-decoration:none;">
+                    <div id="room4">
+                        <h2>Entertainment</h2>
+                        <img src="{% static 'images/resting_color.png' %}" class="icon_img" id="resting" />
+                    </div>
+                </a>
             </div>
-        </a>
-        <a href='/channel/shopping/' style="color: #393838;text-decoration:none;">
-            <div id="room2">
-                <h2>Shopping</h2>
-                <img src="{% static 'images/shopping_color.png' %}" class="icon_img" id="shopping"/>
-            </div>
-        </a>
-        <a href='/channel/housing/' style="color: #393838;text-decoration:none;">
-            <div id="room3">
-                <h2>Housing</h2>
-                <img src="{% static 'images/housing_color.png' %}" class="icon_img" id="housing"/>
-            </div>
-        </a>
-        <a href='/channel/resting/' style="color: #393838;text-decoration:none;">
-            <div id="room4">
-                <h2>Resting</h2>
-                <img src="{% static 'images/resting_color.png' %}" class="icon_img" id="resting"/>
-            </div>
-        </a>
+        </div>
     </div>
 
-</div>
 </body>
 
 </html>
