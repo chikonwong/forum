@@ -126,8 +126,6 @@ def signup(request):
             form.save()
             return redirect('home')
         else:
-            print(form.errors)
-            errormassage = 'hi'
             return render(request, 'signup.html', {'form': form})
     else:
         form = forms.UserForm()

@@ -47,6 +47,8 @@
             font-size: 25pt;
             color: #000000;
             padding-top: 0.5vw;
+            padding-right: 0.5vw;
+            overflow-wrap: anywhere;
         }
 
         #p2 {
@@ -68,6 +70,7 @@
             color: #393838;
             padding-top: 12px;
             margin-left: 2%;
+            margin-bottom: 10px;
         }
 
         #createDiv:hover {
@@ -90,27 +93,28 @@
 </head>
 
 <body>
-    <div class="container">
-        <div class="sub_container">
-            <h1>Post</h1>
+<div class="container">
+    <div class="sub_container">
+        <h1>{{ channel_name }} post</h1>
         {% if request.user.is_authenticated %}
             <a href="/post/create/{{ channel.channel_id }}/">
                 <div id="createDiv">new post +</div>
             </a>
         {% endif %}
-            {% for post in post_list %}
+        {% for post in post_list %}
             <ul id="post">
                 <a href='/post/{{ post.post_id }}/'>
                     <li>
-                        <div id="p1">{{ post.post_title }}</div><br />
-                        <div id="p2">by {{ post.channel.created_by }} || {{ post.channel.created_at}}</div>
+                        <div id="p1">{{ post.post_title }}</div>
+                        <br/>
+                        <div id="p2">by {{ post.channel.created_by }} || {{ post.channel.created_at }}</div>
 
                     </li>
                 </a>
             </ul>
-            {% endfor %}
-        </div>
+        {% endfor %}
     </div>
+</div>
 </body>
 
 </html>

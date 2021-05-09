@@ -87,12 +87,12 @@
             background-color: rgba(245, 79, 79, 0.6);
         }
 
-        .menu li:hover a {
+        .menu li:hover span {
             color: white;
             text-shadow: 2px 2px 10px white;
         }
 
-        .menu a {
+        .menu span {
             font-size: 25pt;
             text-align: center;
             text-decoration: none;
@@ -144,6 +144,7 @@
         #loginbtnDiv {
             display: flex;
             flex-direction: row-reverse;
+            margin-right: 0.5vw;
         }
 
         /*loginbox*/
@@ -311,7 +312,7 @@
                         bgClick = 0;
 
                         document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-                        document.getElementById("menu_list").style.height = "410px";
+                        document.getElementById("menu_list").style.height = "420px";
                         document.getElementById("menu_list").style.visibility = "visible";
                         menuClick = 0;
                         setTimeout(() => {
@@ -320,7 +321,7 @@
                     }, 1000);
                 } else {
                     document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
-                    document.getElementById("menu_list").style.height = "410px";
+                    document.getElementById("menu_list").style.height = "420px";
                     document.getElementById("menu_list").style.visibility = "visible";
                     menuClick = 0;
                     setTimeout(() => {
@@ -356,6 +357,35 @@
             setTimeout(() => {
                 menuOpening = 0;
             }, 700);
+        }
+
+        // change page
+        function toHome() {
+            document.location.href = '/home/';
+        }
+
+        function toLive() {
+            document.location.href = '/home/live/';
+        }
+
+        function toAcademic() {
+            document.location.href = '/home/academic/';
+        }
+
+        function toCreation() {
+            document.location.href = '/home/creation/';
+        }
+
+        function toChat() {
+            document.location.href = '/home/chat/';
+        }
+
+        function toNews() {
+            document.location.href = '/home/news/';
+        }
+
+        function toOthers() {
+            document.location.href = '/home/others/';
         }
 
         /*search bar*/
@@ -488,23 +518,26 @@
         </div>
         <div id="menu_list">
             <ul class="menu">
-                <li onclick="alertMenu()">
-                    <a href='/home/' onclick="alertMenu()">home</a>
+                <li onclick="alertMenu(), toHome()">
+                    <span>home</span>
                 </li>
-                <li onclick="alertMenu()">
-                    <a href='/home/live/' onclick="alertMenu()">live</a>
+                <li onclick="alertMenu(), toLive()">
+                    <span>live</span>
                 </li>
-                <li onclick="alertMenu()">
-                    <a href='/home/academic/' onclick="alertMenu()">academic</a>
+                <li onclick="alertMenu(), toAcademic()">
+                    <span>academic</span>
                 </li>
-                <li onclick="alertMenu()">
-                    <a href='/home/art/' onclick="alertMenu()">art</a>
+                <li onclick="alertMenu(), toCreation()">
+                    <span>creation</span>
                 </li>
-                <li onclick="alertMenu()">
-                    <a href='/home/news/' onclick="alertMenu()">news</a>
+                <li onclick="alertMenu(), toChat()">
+                    <span>chat</span>
                 </li>
-                <li onclick="alertMenu()">
-                    <a href='/home/others/' onclick="alertMenu()">others</a>
+                <li onclick="alertMenu(), toNews()">
+                    <span>news</span>
+                </li>
+                <li onclick="alertMenu(), toOthers()">
+                    <span>others</span>
                 </li>
             </ul>
         </div>
@@ -512,7 +545,7 @@
     {#    Right #}
     <div id="imgButtonDiv">
 
-        <div style="order: 3;margin: auto;font-size: 3em">
+        <div style="order: 3;margin-right: 0.5vw;font-size: 2em; align-self: center;">
             {% if request.user.is_authenticated %}
                 {{ request.user.username }}
             {% endif %}

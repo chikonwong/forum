@@ -173,13 +173,13 @@
 
         function room3Onclick() {
             setTimeout(() => {
-                document.location.href = '/home/art/';
+                document.location.href = '/home/creation/';
             }, 0);
         }
 
         function room4Onclick() {
             setTimeout(() => {
-                document.location.href = '/home/talk/';
+                document.location.href = '/home/chat/';
             }, 0);
         }
 
@@ -203,27 +203,27 @@
 </div>
 <div id="room_container">
     <div id="room1" onclick="room1Onclick()">
-        <h2>生活</h2>
+        <h2>Live</h2>
         <img src="{% static 'images/home_icon.png' %}" class="icon_img" id="live"/>
     </div>
     <div id="room2" onclick="room2Onclick()">
-        <h2>學術</h2>
+        <h2>Academic</h2>
         <img src="{% static 'images/book_icon_color.png' %}" class="icon_img" id="academic"/>
     </div>
     <div id="room3" onclick="room3Onclick()">
-        <h2>創作</h2>
+        <h2>Creation</h2>
         <img src="{% static 'images/think_icon_color_hover.png' %}" class="icon_img" id="art"/>
     </div>
     <div id="room4" onclick="room4Onclick()">
-        <h2>閒聊</h2>
+        <h2>Chat</h2>
         <img src="{% static 'images/talk_icon_color.png' %}" class="icon_img" id="talk"/>
     </div>
     <div id="room5" onclick="room5Onclick()">
-        <h2>最新資訊</h2>
+        <h2>News</h2>
         <img src="{% static 'images/news_icon_color.png' %}" class="icon_img" id="news"/>
     </div>
     <div id="room6" onclick="room6Onclick()">
-        <h2>其他</h2>
+        <h2>Others</h2>
         <img src="{% static 'images/other.png' %}" class="icon_img" id="others"/>
     </div>
 </div>

@@ -12,6 +12,10 @@
             flex-direction: column;
         }
 
+        h1 {
+            font-size: 40pt;
+            align-self: center;
+        }
 
         /*room*/
         #room_container {
@@ -58,20 +62,20 @@
             align-self: center;
         }
 
-        #room1:hover #eating {
-            content: url("{% static 'images/eating.gif' %}");
+        #room1:hover #affairs {
+            content: url("{% static 'images/affairs.png' %}");
         }
 
-        #room2:hover #shopping {
-            content: url("{% static 'images/shopping.gif' %}");
+        #room2:hover #academia {
+            content: url("{% static 'images/academia.png' %}");
         }
 
-        #room3:hover #housing {
-            content: url("{% static 'images/housing.gif' %}");
+        #room3:hover #technology {
+            content: url("{% static 'images/technology.gif' %}");
         }
 
-        #room4:hover #resting {
-            content: url("{% static 'images/resting.gif' %}");
+        #room4:hover #finance {
+            content: url("{% static 'images/finance.gif' %}");
         }
 
         #room1:hover,
@@ -118,35 +122,37 @@
 </head>
 
 <body>
+<div class="container">
+    <h1>News</h1>
     <div id="room_container">
         <div id="room_container_sub">
-            <a href="/channel/eating/" style="color: #393838;text-decoration:none;">
-            <div id="room1">
-                <h2>飲食</h2>
-                <img src="{% static 'images/eating_color.png' %}" class="icon_img" id="eating" />
-            </div>
-        </a>
-        <a href='/channel/shopping/' style="color: #393838;text-decoration:none;">
-            <div id="room2">
-                <h2>購物</h2>
-                <img src="{% static 'images/shopping_color.png' %}" class="icon_img" id="shopping" />
-            </div>
-        </a>
-        <a href='/channel/housing/' style="color: #393838;text-decoration:none;">
-            <div id="room3">
-                <h2>住宿</h2>
-                <img src="{% static 'images/housing_color.png' %}" class="icon_img" id="housing" />
-            </div>
-        </a>
-        <a href='/channel/resting/' style="color: #393838;text-decoration:none;">
-            <div id="room4">
-                <h2>娛樂</h2>
-                <img src="{% static 'images/resting_color.png' %}" class="icon_img" id="resting" />
-            </div>
-        </a>
+            <a href="/channel/affairs/" style="color: #393838;text-decoration:none;">
+                <div id="room1">
+                    <h2>Current Affairs</h2>
+                    <img src="{% static 'images/affairs.png' %}" class="icon_img" id="affairs"/>
+                </div>
+            </a>
+            <a href='/channel/academia/' style="color: #393838;text-decoration:none;">
+                <div id="room2">
+                    <h2>Academia</h2>
+                    <img src="{% static 'images/academia.png' %}" class="icon_img" id="academia"/>
+                </div>
+            </a>
+            <a href='/channel/technology/' style="color: #393838;text-decoration:none;">
+                <div id="room3">
+                    <h2>Technology</h2>
+                    <img src="{% static 'images/technology.png' %}" class="icon_img" id="technology"/>
+                </div>
+            </a>
+            <a href='/channel/finance/' style="color: #393838;text-decoration:none;">
+                <div id="room4">
+                    <h2>Finance</h2>
+                    <img src="{% static 'images/finance.png' %}" class="icon_img" id="finance"/>
+                </div>
+            </a>
         </div>
-        
     </div>
+</div>
 </body>
 
 </html>

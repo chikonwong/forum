@@ -12,6 +12,10 @@
             flex-direction: column;
         }
 
+        h1 {
+            font-size: 40pt;
+            align-self: center;
+        }
 
         /*room*/
         #room_container {
@@ -34,8 +38,7 @@
 
         #room1,
         #room2,
-        #room3,
-        #room4 {
+        #room3 {
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -58,26 +61,21 @@
             align-self: center;
         }
 
-        #room1:hover #eating {
-            content: url("{% static 'images/eating.gif' %}");
+        #room1:hover #hobby {
+            content: url("{% static 'images/hobby.png' %}");
         }
 
-        #room2:hover #shopping {
-            content: url("{% static 'images/shopping.gif' %}");
+        #room2:hover #health {
+            content: url("{% static 'images/health.png' %}");
         }
 
-        #room3:hover #housing {
-            content: url("{% static 'images/housing.gif' %}");
-        }
-
-        #room4:hover #resting {
-            content: url("{% static 'images/resting.gif' %}");
+        #room3:hover #other {
+            content: url("{% static 'images/question_mark_color.png' %}");
         }
 
         #room1:hover,
         #room2:hover,
-        #room3:hover,
-        #room4:hover {
+        #room3:hover {
             background-color: rgba(255, 255, 255, 0.5);
         }
 
@@ -86,8 +84,7 @@
 
             #room1,
             #room2,
-            #room3,
-            #room4 {
+            #room3 {
                 flex-direction: column;
                 width: 600px;
                 height: auto;
@@ -100,8 +97,7 @@
 
             #room1,
             #room2,
-            #room3,
-            #room4 {
+            #room3 {
                 flex-direction: column;
                 width: 85vw;
                 height: auto;
@@ -118,35 +114,31 @@
 </head>
 
 <body>
+<div class="container">
+    <h1>Others</h1>
     <div id="room_container">
         <div id="room_container_sub">
-            <a href="/channel/eating/" style="color: #393838;text-decoration:none;">
-            <div id="room1">
-                <h2>飲食</h2>
-                <img src="{% static 'images/eating_color.png' %}" class="icon_img" id="eating" />
-            </div>
-        </a>
-        <a href='/channel/shopping/' style="color: #393838;text-decoration:none;">
-            <div id="room2">
-                <h2>購物</h2>
-                <img src="{% static 'images/shopping_color.png' %}" class="icon_img" id="shopping" />
-            </div>
-        </a>
-        <a href='/channel/housing/' style="color: #393838;text-decoration:none;">
-            <div id="room3">
-                <h2>住宿</h2>
-                <img src="{% static 'images/housing_color.png' %}" class="icon_img" id="housing" />
-            </div>
-        </a>
-        <a href='/channel/resting/' style="color: #393838;text-decoration:none;">
-            <div id="room4">
-                <h2>娛樂</h2>
-                <img src="{% static 'images/resting_color.png' %}" class="icon_img" id="resting" />
-            </div>
-        </a>
+            <a href="/channel/hobby/" style="color: #393838;text-decoration:none;">
+                <div id="room1">
+                    <h2>Hobby</h2>
+                    <img src="{% static 'images/hobby.png' %}" class="icon_img" id="hobby"/>
+                </div>
+            </a>
+            <a href='/channel/health/' style="color: #393838;text-decoration:none;">
+                <div id="room2">
+                    <h2>Health</h2>
+                    <img src="{% static 'images/health.png' %}" class="icon_img" id="health"/>
+                </div>
+            </a>
+            <a href='/channel/other/' style="color: #393838;text-decoration:none;">
+                <div id="room3">
+                    <h2>Other</h2>
+                    <img src="{% static 'images/question_mark_color.png' %}" class="icon_img" id="other"/>
+                </div>
+            </a>
         </div>
-        
     </div>
+</div>
 </body>
 
 </html>

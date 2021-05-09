@@ -12,6 +12,10 @@
             flex-direction: column;
         }
 
+        h1{
+            font-size: 40pt;
+            align-self: center;
+        }
 
         /*room*/
         #room_container {
@@ -58,20 +62,20 @@
             align-self: center;
         }
 
-        #room1:hover #eating {
-            content: url("{% static 'images/eating.gif' %}");
+        #room1:hover #drawing {
+            content: url("{% static 'images/drawing.png' %}");
         }
 
-        #room2:hover #shopping {
-            content: url("{% static 'images/shopping.gif' %}");
+        #room2:hover #writing {
+            content: url("{% static 'images/writing.png' %}");
         }
 
-        #room3:hover #housing {
-            content: url("{% static 'images/housing.gif' %}");
+        #room3:hover #art {
+            content: url("{% static 'images/art.png' %}");
         }
 
-        #room4:hover #resting {
-            content: url("{% static 'images/resting.gif' %}");
+        #room4:hover #music {
+            content: url("{% static 'images/music.png' %}");
         }
 
         #room1:hover,
@@ -118,35 +122,38 @@
 </head>
 
 <body>
-    <div id="room_container">
-        <div id="room_container_sub">
-            <a href="/channel/eating/" style="color: #393838;text-decoration:none;">
-            <div id="room1">
-                <h2>飲食</h2>
-                <img src="{% static 'images/eating_color.png' %}" class="icon_img" id="eating" />
+    <div class="container">
+        <h1>Creation</h1>
+        <div id="room_container">
+            <div id="room_container_sub">
+                <a href="/channel/drawing/" style="color: #393838;text-decoration:none;">
+                    <div id="room1">
+                        <h2>Drawing</h2>
+                        <img src="{% static 'images/drawing.png' %}" class="icon_img" id="drawing" />
+                    </div>
+                </a>
+                <a href='/channel/writing/' style="color: #393838;text-decoration:none;">
+                    <div id="room2">
+                        <h2>Writing</h2>
+                        <img src="{% static 'images/writing.png' %}" class="icon_img" id="writing" />
+                    </div>
+                </a>
+                <a href='/channel/art/' style="color: #393838;text-decoration:none;">
+                    <div id="room3">
+                        <h2>Art</h2>
+                        <img src="{% static 'images/art.png' %}" class="icon_img" id="art" />
+                    </div>
+                </a>
+                <a href='/channel/music/' style="color: #393838;text-decoration:none;">
+                    <div id="room4">
+                        <h2>Music</h2>
+                        <img src="{% static 'images/music.png' %}" class="icon_img" id="music" />
+                    </div>
+                </a>
             </div>
-        </a>
-        <a href='/channel/shopping/' style="color: #393838;text-decoration:none;">
-            <div id="room2">
-                <h2>購物</h2>
-                <img src="{% static 'images/shopping_color.png' %}" class="icon_img" id="shopping" />
-            </div>
-        </a>
-        <a href='/channel/housing/' style="color: #393838;text-decoration:none;">
-            <div id="room3">
-                <h2>住宿</h2>
-                <img src="{% static 'images/housing_color.png' %}" class="icon_img" id="housing" />
-            </div>
-        </a>
-        <a href='/channel/resting/' style="color: #393838;text-decoration:none;">
-            <div id="room4">
-                <h2>娛樂</h2>
-                <img src="{% static 'images/resting_color.png' %}" class="icon_img" id="resting" />
-            </div>
-        </a>
         </div>
-        
     </div>
+
 </body>
 
 </html>
