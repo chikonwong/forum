@@ -1,0 +1,232 @@
+{% include 'include/nav.html' %}
+{% load widget_tweaks %}
+{% load static %}
+
+<html onclick="backOriginal()">
+
+<head>
+    <title>Origin-home</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: column;
+        }
+
+        #titleDiv {
+            height: auto;
+            display: flex;
+            justify-content: space-around;
+            transition: height 800ms;
+            overflow: hidden;
+        }
+
+        #title {
+            width: 1000px;
+        }
+
+        /*room*/
+        #room_container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-bottom: 50px;
+        }
+
+        #room1,
+        #room2,
+        #room3,
+        #room4,
+        #room5,
+        #room6 {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 400px;
+            height: 140px;
+            border: 3px dashed #393838;
+            text-align: center;
+            margin: 1vw;
+            transition: height 800ms;
+            overflow: hidden;
+        }
+
+        .icon_img {
+            width: 100px;
+            height: 100px;
+            align-self: center;
+        }
+
+        h2 {
+            font-size: 40pt;
+            align-self: center;
+        }
+
+        #room1:hover #live {
+            content: url("{% static 'images/home.gif' %}");
+        }
+
+        #room2:hover #academic {
+            content: url("{% static 'images/book.gif' %}");
+        }
+
+        #room3:hover #art {
+            content: url("{% static 'images/think.gif' %}");
+        }
+
+        #room4:hover #talk {
+            content: url("{% static 'images/talk.gif' %}");
+        }
+
+        #room5:hover #news {
+            content: url("{% static 'images/news.gif' %}");
+        }
+
+        #room6:hover #others {
+            content: url("{% static 'images/other.gif' %}");
+        }
+
+        #room1:hover,
+        #room2:hover,
+        #room3:hover,
+        #room4:hover,
+        #room5:hover,
+        #room6:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /*when screen size changes*/
+        @media only screen and (max-width: 1100px) {
+            #title {
+                width: 90vw;
+            }
+        }
+
+        @media only screen and (max-width: 1500px) {
+
+            #room1,
+            #room2,
+            #room3,
+            #room4,
+            #room5,
+            #room6 {
+                flex-direction: column;
+                justify-content: center;
+                width: 350px;
+                height: auto;
+                padding-bottom: 30px;
+            }
+
+            .icon_img {
+                width: 150px;
+                height: 150px;
+            }
+        }
+
+        @media only screen and (max-width: 800px) {
+
+            #room1,
+            #room2,
+            #room3,
+            #room4,
+            #room5,
+            #room6 {
+                flex-direction: column;
+                width: 600px;
+                height: auto;
+                padding-bottom: 30px;
+                margin-bottom: 2vw;
+            }
+        }
+
+        @media only screen and (max-width: 700px) {
+
+            #room1,
+            #room2,
+            #room3,
+            #room4,
+            #room5,
+            #room6 {
+                flex-direction: column;
+                width: 85vw;
+                height: auto;
+                padding-bottom: 30px;
+                margin-bottom: 2vw;
+            }
+        }
+    </style>
+
+    <script src="{% static '/js/sript.js' %}"></script>
+
+    <script>
+        function room1Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/live/';
+            }, 0);
+        }
+
+        function room2Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/academic/';
+            }, 0);
+        }
+
+        function room3Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/art/';
+            }, 0);
+        }
+
+        function room4Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/talk/';
+            }, 0);
+        }
+
+        function room5Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/news/';
+            }, 0);
+        }
+
+        function room6Onclick() {
+            setTimeout(() => {
+                document.location.href = '/home/others/';
+            }, 0);
+        }
+    </script>
+</head>
+
+<body>
+<div id="titleDiv">
+    <img src="{% static 'images/origin_web_title_grey.png' %}" id="title"/>
+</div>
+<div id="room_container">
+    <div id="room1" onclick="room1Onclick()">
+        <h2>生活</h2>
+        <img src="{% static 'images/home_icon.png' %}" class="icon_img" id="live"/>
+    </div>
+    <div id="room2" onclick="room2Onclick()">
+        <h2>學術</h2>
+        <img src="{% static 'images/book_icon_color.png' %}" class="icon_img" id="academic"/>
+    </div>
+    <div id="room3" onclick="room3Onclick()">
+        <h2>創作</h2>
+        <img src="{% static 'images/think_icon_color_hover.png' %}" class="icon_img" id="art"/>
+    </div>
+    <div id="room4" onclick="room4Onclick()">
+        <h2>閒聊</h2>
+        <img src="{% static 'images/talk_icon_color.png' %}" class="icon_img" id="talk"/>
+    </div>
+    <div id="room5" onclick="room5Onclick()">
+        <h2>最新資訊</h2>
+        <img src="{% static 'images/news_icon_color.png' %}" class="icon_img" id="news"/>
+    </div>
+    <div id="room6" onclick="room6Onclick()">
+        <h2>其他</h2>
+        <img src="{% static 'images/other.png' %}" class="icon_img" id="others"/>
+    </div>
+</div>
+</body>
+
+</html>

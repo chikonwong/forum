@@ -1,0 +1,61 @@
+{% load widget_tweaks %}
+<html>
+
+<head>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Itim&family=Pangolin&display=swap"
+        rel="stylesheet">
+    <style>
+        #id_comment {
+            width: 100%;
+            height: 200px;
+            resize: none;
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        .form_button {
+            width: 120px;
+            height: 50px;
+            border: 0px solid transparent;
+            border-radius: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 20pt;
+            align-self: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.3);
+            color: #393838;
+        }
+
+        #comment {
+            width: 140px;
+        }
+
+        #comment:hover {
+            background-color: rgba(121, 153, 240, 0.493);
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 4px 4px 10px rgba(255, 255, 255, 1);
+        }
+
+        #reset:hover {
+            background-color: rgba(253, 51, 24, 0.6);
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 4px 4px 10px rgba(255, 255, 255, 1);
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/comment/create/" method="POST">
+        {% csrf_token %}
+        <input type="hidden" name="post_id" value="{{ post_id }}">
+        <label> comment:<br />
+            {{ comment_form.comment }}
+        </label>
+        <br>
+        <h3>{{ textmassage }}</h3>
+        <button type="submit" class="btn btn-info form_button" id="comment">comment</button>
+        <button type="reset" class="btn btn-info form_button" id="reset">reset</button>
+    </form>
+</body>
+
+</html>

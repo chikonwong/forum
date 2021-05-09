@@ -1,0 +1,571 @@
+{% load static %}
+{% load widget_tweaks %}
+<html onclick="backOriginal()">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="{% static '/css/stylesheet.css' %}">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Itim&family=Pangolin&display=swap"
+          rel="stylesheet">
+    <style>
+        html,
+        body {
+            background: url("{% static 'images/pattern_background.gif' %}");
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            margin: 0;
+            padding: 0;
+            font-family: 'Dancing Script', cursive;
+            color: #393838;
+        }
+
+        .bar {
+            display: flex;
+            flex-direction: row;
+            height: 62.1px;
+        }
+
+        /*menu*/
+        #iconAndMenu_div {
+            display: flex;
+            flex-direction: column;
+            margin-left: 0.7vw;
+            position: absolute;
+        }
+
+        #icon_div {
+            display: flex;
+            flex-direction: row;
+            margin-top: 10px;
+        }
+
+        #menu_icon {
+            width: 50px;
+            height: 50px;
+            border-radius: 15px;
+            align-self: center;
+            background-color: transparent;
+        }
+
+        #menu_icon:hover {
+            background-color: rgba(255, 255, 255, 0.5);
+        }
+
+        #menu_list {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            width: 150px;
+            height: 0px;
+            transition: height 800ms;
+            border: solid 0px transparent;
+            background-color: rgba(255, 255, 255, 0.4);
+            overflow: hidden;
+        }
+
+        .closeMenu {
+            height: 0;
+        }
+
+        .menu {
+            list-style: none;
+            margin: 0px;
+            padding: 0px;
+            background-color: transparent;
+            width: 100%;
+            text-shadow: 4px 4px 20px #585858;
+        }
+
+        .menu li {
+            height: 60px;
+            text-align: center;
+            padding-top: 10px;
+        }
+
+        .menu li:hover {
+            background-color: rgba(245, 79, 79, 0.6);
+        }
+
+        .menu li:hover a {
+            color: white;
+            text-shadow: 2px 2px 10px white;
+        }
+
+        .menu a {
+            font-size: 25pt;
+            text-align: center;
+            text-decoration: none;
+            color: #393938;
+            text-shadow: 4px 4px 10px white;
+        }
+
+        /*search*/
+        #search {
+            width: 40px;
+            height: 40px;
+            align-self: center;
+            margin-left: 0.5vw;
+        }
+
+        #searchbar {
+            width: 0px;
+            max-width: 300px;
+            transition: width 1200ms;
+            height: 45px;
+            opacity: 0.3;
+            border: 0vw solid transparent;
+            padding-left: 0.5vw;
+            margin-left: 0.5vw;
+            align-self: center;
+            visibility: hidden;
+        }
+
+        #search:hover {
+            content: url("{% static 'images/search_icon_hover.png' %}");
+        }
+
+
+        /*login*/
+        #loginDiv {
+            order: 2;
+        }
+
+        #login {
+            width: 129.4px;
+            height: 62.1px;
+        }
+
+        #logout {
+            width: 140px;
+            height: 62.1px;
+        }
+
+        #loginbtnDiv {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        /*loginbox*/
+        #loginbox {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            width: 350px;
+            height: 0px;
+            transition: height 800ms;
+            border-radius: 20px;
+            visibility: hidden;
+            border: dotted 5px #393838;
+            padding-left: 10px;
+            padding-right: 5px;
+            background-color: rgba(255, 248, 220, 0.8);
+            overflow: hidden;
+        }
+
+        #inputBox {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+        }
+
+        .closebox {
+            height: 0;
+        }
+
+        label {
+            font-size: 20pt;
+        }
+
+        #login:hover {
+            content: url("{% static 'images/login_button_hover.png' %}");
+        }
+
+        #logout:hover {
+            content: url("{% static 'images/logout.gif' %}");
+        }
+
+        #imgButtonDiv {
+            display: flex;
+            flex-direction: row-reverse;
+            position: absolute;
+            right: 0%;
+        }
+
+        #ok_button {
+            width: 60px;
+            height: 110px;
+            border: 0px solid transparent;
+            border-radius: 10px;
+            margin-left: 2px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 20pt;
+            align-self: center;
+            text-align: center;
+            background-color: rgba(30, 180, 30, 0.6);
+            color: rgba(255, 255, 255, 1);
+            box-shadow: 4px 4px 10px rgba(255, 248, 220, 0.8);
+        }
+
+        #ok_button:hover {
+            background-color: rgba(36, 206, 36, 0.6);
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 4px 4px 10px rgba(255, 255, 255, 1);
+            box-shadow: 4px 4px 10px rgba(255, 248, 220, 0.8);
+        }
+
+        /*signup*/
+        #signupDiv {
+            order: 1;
+        }
+
+        #signup {
+            width: 129.4px;
+            height: 62.1px;
+        }
+
+        #signup:hover {
+            content: url("{% static 'images/signup_button_hover.png' %}");
+        }
+
+        /*input box border*/
+        input {
+            height: 35px;
+            opacity: 0.8;
+            border: 0px solid transparent;
+        }
+
+        .input {
+            border-radius: 20px;
+        }
+
+        .input2 {
+            height: 30px;
+        }
+    </style>
+
+    <script src="{% static '/js/sript.js' %}"></script>
+
+    <script>
+        /* check screen size * /
+        /*var checkWidth = window.matchMedia("(max-width: 300px)");
+        $(document).ready(function () {
+            checkWidth.addEventListener(searchClick);
+        });*/
+
+        /*close all opening function*/
+        var bgClick = 0;
+        var bgClick2 = 0;
+        var bgClick3 = 0;
+
+        function backOriginal() {
+            if (bgClick == 1) {
+                if (searching == 0) {
+                    document.getElementById("searchbar").style.width = "0px";
+                    setTimeout(() => {
+                        document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
+                        document.getElementById("searchbar").style.visibility = "hidden";
+                        searchClick = 1;
+                        bgClick = 0;
+                    }, 1000);
+                }
+            }
+
+            if (bgClick2 == 1) {
+                if (loggingin == 0) {
+                    document.getElementById("loginbox").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("login").src = "{% static 'images/login_button.png' %}";
+                        document.getElementById("loginbox").style.visibility = "hidden";
+                        loginClick = 1;
+                        bgClick2 = 0;
+                    }, 700);
+                }
+            }
+
+            if (bgClick3 == 1) {
+                if (menuOpening == 0) {
+                    document.getElementById("menu_list").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("menu_icon").style.backgroundColor = "transparent";
+                        document.getElementById("menu_list").style.visibility = "hidden";
+                        menuClick = 1;
+                        bgClick3 = 0;
+                    }, 700);
+                }
+            }
+        }
+
+        /*menu*/
+        var menuClick = 1;
+
+        function openMenu() {
+            if (menuClick == 1) {
+                /*close search bar if search bar is opening*/
+                if (document.getElementById("searchbar").style.width == "30vw") {
+                    document.getElementById("searchbar").style.width = "0px";
+                    setTimeout(() => {
+                        document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
+                        document.getElementById("searchbar").style.visibility = "hidden";
+                        searchClick = 1;
+                        bgClick = 0;
+
+                        document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+                        document.getElementById("menu_list").style.height = "410px";
+                        document.getElementById("menu_list").style.visibility = "visible";
+                        menuClick = 0;
+                        setTimeout(() => {
+                            bgClick3 = 1;
+                        }, 500);
+                    }, 1000);
+                } else {
+                    document.getElementById("menu_icon").style.backgroundColor = "rgba(255, 255, 255, 0.5)";
+                    document.getElementById("menu_list").style.height = "410px";
+                    document.getElementById("menu_list").style.visibility = "visible";
+                    menuClick = 0;
+                    setTimeout(() => {
+                        bgClick3 = 1;
+                    }, 500);
+                }
+
+                /*close loginbox if loginbox is opening*/
+                if (document.getElementById("loginbox").style.height != 0) {
+                    document.getElementById("login").src = "{% static 'images/login_button.png' %}";
+                    document.getElementById("loginbox").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("loginbox").style.visibility = "hidden";
+                        loginClick = 1;
+                        bgClick2 = 0;
+                    }, 700);
+                }
+            } else {
+                document.getElementById("menu_list").style.height = "0px";
+                setTimeout(() => {
+                    document.getElementById("menu_icon").style.backgroundColor = "transparent";
+                    document.getElementById("menu_list").style.visibility = "hidden";
+                    menuClick = 1;
+                    bgClick3 = 0;
+                }, 700);
+            }
+        }
+
+        var menuOpening = 0;
+
+        function alertMenu() {
+            menuOpening = 1;
+            setTimeout(() => {
+                menuOpening = 0;
+            }, 700);
+        }
+
+        /*search bar*/
+        var searchClick = 1;
+
+        function searchOnClick() {
+            if (searchClick == 1) {
+                var image = document.getElementById("search");
+                image.src = "{% static 'images/search_icon_hover.png' %}";
+
+                /*if (checkWidth.matches) {
+                    document.getElementById("searchbar").style.width = "20vw";
+                }
+                else {
+                    document.getElementById("searchbar").style.width = "30vw";
+                }*/
+
+                /*close menu if loginbox is opening*/
+                if (document.getElementById("menu_list").style.height != 0) {
+                    document.getElementById("menu_list").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("menu_icon").style.backgroundColor = "transparent";
+                        document.getElementById("menu_list").style.visibility = "hidden";
+                        menuClick = 1;
+                        bgClick3 = 0;
+
+                        document.getElementById("searchbar").style.width = "30vw";
+                        document.getElementById("searchbar").style.visibility = "visible";
+                        searchClick = 0;
+                        setTimeout(() => {
+                            bgClick = 1;
+                        }, 500);
+                    }, 700);
+                } else {
+                    var image = document.getElementById("search");
+                    image.src = "{% static 'images/search_icon_hover.png' %}";
+                    document.getElementById("searchbar").style.width = "30vw";
+                    document.getElementById("searchbar").style.visibility = "visible";
+                    searchClick = 0;
+                    setTimeout(() => {
+                        bgClick = 1;
+                    }, 500);
+                }
+
+                /*close loginbox if loginbox is opening*/
+                if (document.getElementById("loginbox").style.height != 0) {
+                    document.getElementById("login").src = "{% static 'images/login_button.png' %}";
+                    document.getElementById("loginbox").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("loginbox").style.visibility = "hidden";
+                        loginClick = 1;
+                        bgClick2 = 0;
+                    }, 700);
+                }
+            } else {
+                document.getElementById("searchbar").style.width = "0px";
+                setTimeout(() => {
+                    document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
+                    document.getElementById("searchbar").style.visibility = "hidden";
+                    searchClick = 1;
+                    bgClick = 0;
+                }, 1000);
+            }
+        }
+
+        var searching = 0;
+
+        function alertSearch() {
+            searching = 1;
+            setTimeout(() => {
+                searching = 0;
+            }, 1000);
+        }
+
+        /*login button*/
+        var loginClick = 1;
+
+        function loginOnClick() {
+            if (loginClick == 1) {
+                document.getElementById("login").src = "{% static 'images/login_button_hover.png' %}";
+                document.getElementById("loginbox").style.height = "125px";
+                document.getElementById("loginbox").style.visibility = "visible";
+                loginClick = 0;
+                setTimeout(() => {
+                    bgClick2 = 1;
+                }, 500);
+
+                /*close search bar if search bar is opening*/
+                if (document.getElementById("searchbar").style.width == "30vw") {
+                    document.getElementById("searchbar").style.width = "0px";
+                    setTimeout(() => {
+                        document.getElementById("search").src = "{% static 'images/search_icon.png' %}";
+                        document.getElementById("searchbar").style.visibility = "hidden";
+                        searchClick = 1;
+                        bgClick = 0;
+                    }, 1000);
+                }
+
+                /*close menu if loginbox is opening*/
+                if (document.getElementById("menu_list").style.height != 0) {
+                    document.getElementById("menu_list").style.height = "0px";
+                    setTimeout(() => {
+                        document.getElementById("menu_icon").style.backgroundColor = "transparent";
+                        document.getElementById("menu_list").style.visibility = "hidden";
+                        menuClick = 1;
+                        bgClick3 = 0;
+                    }, 700);
+                }
+            } else {
+                document.getElementById("login").src = "{% static 'images/login_button.png' %}";
+                document.getElementById("loginbox").style.height = "0px";
+                setTimeout(() => {
+                    document.getElementById("loginbox").style.visibility = "hidden";
+                    loginClick = 1;
+                    bgClick2 = 0;
+                }, 700);
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="bar">
+    <div id="iconAndMenu_div">
+        {#            Left #}
+        <div id="icon_div">
+            <img src="{% static 'images/menubar_icon.png' %}" id="menu_icon" onclick="openMenu()"/>
+            <img src="{% static 'images/search_icon.png' %}" id="search" onclick="searchOnClick()"/>
+            <input type="search" value="search" result="5" id="searchbar" class="input" onclick="alertSearch()">
+        </div>
+        <div id="menu_list">
+            <ul class="menu">
+                <li onclick="alertMenu()">
+                    <a href='/home/' onclick="alertMenu()">home</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/live/' onclick="alertMenu()">live</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/academic/' onclick="alertMenu()">academic</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/art/' onclick="alertMenu()">art</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/news/' onclick="alertMenu()">news</a>
+                </li>
+                <li onclick="alertMenu()">
+                    <a href='/home/others/' onclick="alertMenu()">others</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+    {#    Right #}
+    <div id="imgButtonDiv">
+
+        <div style="order: 3;margin: auto;font-size: 3em">
+            {% if request.user.is_authenticated %}
+                {{ request.user.username }}
+            {% endif %}
+        </div>
+
+        {#        Login #}
+        <div id="loginDiv">
+            <div id="loginbtnDiv">
+                {% if request.user.is_authenticated %}
+                    <a href='/logout/'><img src="{% static 'images/logout_button.png' %}" id="logout"
+                                            onclick="loginOnClick()"/></a>
+                {% else %}
+                    <img src="{% static 'images/login_button.png' %}" id="login" onclick="loginOnClick()"/>
+                {% endif %}
+            </div>
+            {#            User name #}
+
+            {% if not request.user.is_authenticated %}
+                {#                    Login Form #}
+                <form action="/login/" method="POST">
+                    {% csrf_token %}
+                    <div id="loginbox">
+                        <div id="inputBox">
+                            <div class="fieldWrapper">
+                                <label for="{{ form.username.id_for_label }}">username: </label>
+                                <input type="text" name="username" class="input2 form-control"
+                                       required="required"><br/>
+                            </div>
+                            <div class="fieldWrapper">
+                                <label for="{{ form.password.id_for_label }}">password: </label>
+                                <input type="password" name="password" class="input2 form-control"
+                                       required="required"><br/>
+                            </div>
+                        </div>
+                        <button type="submit" name="ok" id="ok_button" class="btn btn-info">ok</button>
+                    </div>
+                </form>
+                {% if form.errors %}
+                    <p>Your username and password didn't match. Please try again.</p>
+                {% endif %}
+            {% endif %}
+        </div>
+        {#        Sign up #}
+
+        <div id="signupDiv">
+            {% if not request.user.is_authenticated %}
+                <a href='/signup/'><img src="{% static 'images/signup_button.png' %}" id="signup"
+                                        onclick="signupOnClick()"/></a>
+            {% endif %}
+        </div>
+    </div>
+
+</div>
+</body>
+
+</html>

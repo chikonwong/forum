@@ -1,0 +1,110 @@
+{% include 'include/nav.html' %}
+{% load widget_tweaks %}
+<html>
+
+<head>
+    <title>create post</title>
+    <style>
+        .container {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+        }
+
+        .sub_container {
+            display: flex;
+            flex-direction: column;
+            width: 1000px;
+            background-color: rgba(255, 255, 255, 0.4);
+            margin-top: 20px;
+        }
+
+        h1,
+        label,
+        #id_post_content,
+        #id_post_title,
+        .buttonDiv {
+            margin: 3%;
+        }
+
+        h1 {
+            font-size: 35pt;
+        }
+
+        #id_post_title {
+            width: 95%;
+            resize: none;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        #id_post_content {
+            width: 95%;
+            height: 200px;
+            resize: none;
+            background-color: rgba(255, 255, 255, 0.7);
+        }
+
+        label {
+            font-size: 20pt;
+        }
+
+        .form_button {
+            width: 120px;
+            height: 50px;
+            border: 0px solid transparent;
+            border-radius: 30px;
+            font-family: 'Dancing Script', cursive;
+            font-size: 20pt;
+            align-self: center;
+            text-align: center;
+            background-color: rgba(255, 255, 255, 0.4);
+            color: #393838;
+        }
+
+        #create:hover {
+            background-color: rgba(255, 255, 255, 1);
+        }
+
+        #reset:hover {
+            background-color: rgba(253, 51, 24, 0.6);
+            color: rgba(255, 255, 255, 1);
+            text-shadow: 4px 4px 10px rgba(255, 255, 255, 1);
+        }
+
+        @media only screen and (max-width: 1100px) {
+            .sub_container {
+                width: 91vw;
+            }
+        }
+    </style>
+</head>
+
+<body>
+<div class="container">
+    <div class="sub_container">
+        <form action="" method="POST">
+            {% csrf_token %}
+            <input type="hidden" name="channel_id" value="{{ channel_id }}">
+            <h1>new post</h1>
+            <div>
+                <label> post name:<br/>
+                    {{ post_form.post_title }}
+                </label><br/>
+            </div>
+            <div>
+                <label> post content:<br/>
+                   {{ post_form.post_content }}
+                </label>
+            </div>
+            <h3>{{ textmassage }}</h3>
+            <div class="buttonDiv">
+                <button type="submit" class="btn btn-info form_button" id="create">create</button>
+                <button type="reset" class="btn btn-info form_button" id="reset">reset</button>
+            </div>
+
+        </form>
+    </div>
+</div>
+</body>
+
+</html>
