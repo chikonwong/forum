@@ -45,6 +45,15 @@
             opacity: 0.7;
         }
 
+        #sub_postbox2b {
+            display: flex;
+            flex-direction: row-reverse;
+        }
+
+        #like {
+            margin-right: 10px;
+        }
+
         #p1 {
             font-family: 'Pangolin', cursive;
             font-size: 40pt;
@@ -144,6 +153,21 @@
             }
         }
     </style>
+    <script>
+        var like = 0;
+
+        function likebtn() {
+            if (like == 0) {
+
+                document.body.style.backgroundColor = "red";
+                document.getElementById("like").src = "{% static 'images/like_button_hover.png' %}";
+                like = 1;
+            } else {
+                document.getElementById("like").src = "{% static 'images/like_button.png' %}";
+                like = 0;
+            }
+        }
+    </script>
 </head>
 
 <body>
@@ -156,16 +180,27 @@
                     <div id="p2">by {{ post.created_by }}, {{ post.created_at }}</div>
                 </div>
                 <div id="sub_postbox2">
-                    {% if request.user.is_authenticated %}
-                        {% if visible == 1 %}
-                            <a href='/post/edit/{{ post.post_id }}/'>
-                                <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit"/>
-                            </a>
-                            <a href='/post/delete/{{ post.post_id }}/'>
-                                <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete"/>
-                            </a>
+                    <div id="sub_postbox2a">
+                        {% if request.user.is_authenticated %}
+                            {% if visible == 1 %}
+                                <a href='/post/edit/{{ post.post_id }}/'>
+                                    <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit"/>
+                                </a>
+                                <a href='/post/delete/{{ post.post_id }}/'>
+                                    <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete"/>
+                                </a>
+                            {% endif %}
+                            {% if likevisible == 1 %}
+                                <div id="sub_postbox2b">
+                                    <div>
+                                        <img src="{% static 'images/like_button.png' %}" class="icon" id="like"
+                                             onclick="likebtn()"/>
+                                    </div>
+                                </div>
+                            {% endif %}
                         {% endif %}
-                    {% endif %}
+                    </div>
+
                 </div>
             </div>
             <div id="p3">{{ post.post_content }}</div>

@@ -49,8 +49,10 @@ def view_post(request, post_id):
         comment_form = forms.CommentForm()
         if request.user == post.created_by:
             visible = 1
+            likevisible = 0
         else:
             visible = 0
+            likevisible = 1
         return render(request, 'post_view.html', locals())
 
 
