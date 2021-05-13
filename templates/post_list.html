@@ -101,11 +101,12 @@
                 <div id="createDiv">new post +</div>
             </a>
         {% endif %}
-        {% for post in post_list %}
+        {% for post in post_view_list %}
             <ul id="post">
                 <a href='/post/{{ post.post_id }}/'>
                     <li>
                         <div id="p1">{{ post.post_title }}</div>
+                        <div id="p1" >{{ post.like_count }}</div>
                         <br/>
                         <div id="p2">by {{ post.created_by }} || {{ post.created_at }}</div>
 

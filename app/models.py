@@ -49,6 +49,17 @@ class Post(models.Model):
         return self.post_title
 
 
+class PostLike(models.Model):
+    post_like_id = models.UUIDField(primary_key=True, auto_created=True, default=uuid.uuid4, editable=False)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    is_like_post = models.BooleanField(default=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.post.post_title
+
+
 class Comment(models.Model):
     status = {
         (0, 'Inactive'),

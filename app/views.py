@@ -4,7 +4,7 @@ from django.urls import reverse
 from django.views.generic import ListView, CreateView
 from django.http import HttpResponseRedirect
 # Create your views here.
-from app.models import Channel, Post, Comment
+from app.models import Channel, Post, Comment, PostLike
 from app import forms
 
 
@@ -35,10 +35,23 @@ def list_channel(request):
 
 
 # post
+# list
 def list_post(request, channel_name):
     if request.method == 'GET':
         channel = Channel.objects.get(channel_name=channel_name)
-        post_list = Post.objects.filter(channel=channel).order_by('-post_priority')
+        post_list = Post.objects.filter(channel=channel)
+        post_like_count = 0
+        post_view_list = []
+        for post in post_list:
+            post_like_count = PostLike.objects.filter(post=post).count()
+            post_view_list.append({
+                'post_id': post.post_id,
+                'post_title': post.post_title,
+                'created_by': post.created_by,
+                'created_at': post.created_at,
+                'like_count': post_like_count
+            })
+        post_view_list.sort(key=lambda x: x.get('like_count'), reverse=True)
         return render(request, 'post_list.html', locals())
 
 
@@ -53,7 +66,40 @@ def view_post(request, post_id):
         else:
             visible = 0
             likevisible = 1
-        return render(request, 'post_view.html', locals())
+
+    if request.user.is_authenticated:
+        # Value for like post
+        like_post_list = PostLike.objects.filter(post=post)
+        like_post_list_count = like_post_list.filter(is_like_post=True).count()
+        is_current_user_like_post = 0
+
+        user_like_post_list = like_post_list.filter(user=request.user)
+        if len(user_like_post_list) > 0:
+            for like_post_record in user_like_post_list:
+                is_like = like_post_record.is_like_post
+                if is_like:
+                    is_current_user_like_post = 1
+
+    return render(request, 'post_view.html', locals())
+
+
+def like_post(request, post_id):
+    if request.method == 'GET':
+        post = Post.objects.get(post_id=post_id)
+        like_post_list = PostLike.objects.filter(post=post).filter(user=request.user)
+        if len(like_post_list) > 0:
+            for like_post_record in like_post_list:
+                is_like = like_post_record.is_like_post
+                if is_like:
+                    like_post_record.is_like_post = False
+                    like_post_record.save()
+                else:
+                    like_post_record.is_like_post = True
+                    like_post_record.save()
+        else:
+            PostLike.objects.create(post=post, user=request.user)
+
+        return redirect('view_post', post_id=post_id)
 
 
 def delete_post(request, post_id):
@@ -82,6 +128,7 @@ def edit_post(request, post_id):
         return render(request, "edit_post_form.html", locals())
 
 
+# Create Post
 def create_post(request, channel_id):
     if request.method == 'POST':
         channel_id = request.POST['channel_id']

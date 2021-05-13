@@ -154,23 +154,35 @@
         }
     </style>
     <script>
-        var like = 0;
+        var like = {{ is_current_user_like_post }};
 
         function likebtn() {
-            if (like == 0) {
 
+            if (like === 0) {
                 document.body.style.backgroundColor = "red";
                 document.getElementById("like").src = "{% static 'images/like_button_hover.png' %}";
                 like = 1;
+
             } else {
                 document.getElementById("like").src = "{% static 'images/like_button.png' %}";
                 like = 0;
             }
         }
+
+        function checklike() {
+
+            if (like === 1) {
+                document.body.style.backgroundColor = "red";
+                document.getElementById("like").src = "{% static 'images/like_button_hover.png' %}";
+
+            } else {
+                document.getElementById("like").src = "{% static 'images/like_button.png' %}";
+            }
+        }
     </script>
 </head>
 
-<body>
+<body onload="checklike()">
 <div class="container">
     <div class="sub_container">
         <div class="postbox">
@@ -192,9 +204,13 @@
                             {% endif %}
                             {% if likevisible == 1 %}
                                 <div id="sub_postbox2b">
+                                    <div hidden> {{ is_current_user_like_post }} </div>
                                     <div>
-                                        <img src="{% static 'images/like_button.png' %}" class="icon" id="like"
-                                             onclick="likebtn()"/>
+                                        <a href="/post/like/{{ post.post_id }}">
+                                            <img src="{% static 'images/like_button.png' %}" class="icon" id="like"
+                                                 onclick="likebtn()"/>
+                                        </a>
+                                        {{ like_post_list_count }}
                                     </div>
                                 </div>
                             {% endif %}
