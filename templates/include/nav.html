@@ -100,6 +100,18 @@
             text-shadow: 4px 4px 10px white;
         }
 
+        /*back*/
+        #back {
+            width: 37px;
+            height: 37px;
+            align-self: center;
+            margin-left: 0.4vw;
+        }
+
+        #back:hover {
+            content: url("{% static 'images/back_hover.png' %}");
+        }
+
         /*search*/
         #search {
             width: 40px;
@@ -245,8 +257,6 @@
         }
     </style>
 
-    <script src="{% static '/js/sript.js' %}"></script>
-
     <script>
         /* check screen size * /
         /*var checkWidth = window.matchMedia("(max-width: 300px)");
@@ -357,6 +367,11 @@
             setTimeout(() => {
                 menuOpening = 0;
             }, 700);
+        }
+
+        // back
+        function backPage() {
+           window.history.go(-1);
         }
 
         // change page
@@ -513,6 +528,7 @@
             {# Left #}
             <div id="icon_div">
                 <img src="{% static 'images/menubar_icon.png' %}" id="menu_icon" onclick="openMenu()" />
+                <img src="{% static 'images/back.png' %}" id="back" onclick="backPage()" />
                 <img src="{% static 'images/search_icon.png' %}" id="search" onclick="searchOnClick()" />
                 <input type="search" value="search" result="5" id="searchbar" class="input" onclick="alertSearch()">
             </div>

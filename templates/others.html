@@ -107,9 +107,12 @@
         }
     </style>
 
-    <script src="{% static '/js/sript.js' %}"></script>
-
     <script>
+        function backPage() {
+            setTimeout(() => {
+                document.location.href = '/home/';
+            }, 0);
+        }
     </script>
 </head>
 

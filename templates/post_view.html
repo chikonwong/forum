@@ -66,6 +66,10 @@
             font-size: 15pt;
         }
 
+        #p2 span {
+            color: blue;
+        }
+
         #p3 {
             font-family: 'Pangolin', cursive;
             font-size: 20pt;
@@ -135,6 +139,14 @@
             margin: 15px;
         }
 
+        #likeCount {
+            font-size: 25pt;
+            font-family: 'Itim', cursive;
+            color: grey;
+            margin-top: 10%;
+            margin-right: 5%;
+        }
+
         @media only screen and (max-width: 1100px) {
             .sub_container {
                 width: 91vw;
@@ -183,60 +195,60 @@
 </head>
 
 <body onload="checklike()">
-<div class="container">
-    <div class="sub_container">
-        <div class="postbox">
-            <div class="sub_postbox">
-                <div id="sub_postbox1">
-                    <div id="p1">{{ post.post_title }}</div>
-                    <div id="p2">by {{ post.created_by }}, {{ post.created_at }}</div>
-                </div>
-                <div id="sub_postbox2">
-                    <div id="sub_postbox2a">
-                        {% if request.user.is_authenticated %}
+    <div class="container">
+        <div class="sub_container">
+            <div class="postbox">
+                <div class="sub_postbox">
+                    <div id="sub_postbox1">
+                        <div id="p1">{{ post.post_title }}</div>
+                        <div id="p2">by <span>{{ post.created_by }}</span>, {{ post.created_at }}</div>
+                    </div>
+                    <div id="sub_postbox2">
+                        <div id="sub_postbox2a">
+                            {% if request.user.is_authenticated %}
                             {% if visible == 1 %}
-                                <a href='/post/edit/{{ post.post_id }}/'>
-                                    <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit"/>
-                                </a>
-                                <a href='/post/delete/{{ post.post_id }}/'>
-                                    <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete"/>
-                                </a>
+                            <a href='/post/edit/{{ post.post_id }}/'>
+                                <img src="{% static 'images/edit_icon.png' %}" class="icon" id="edit" />
+                            </a>
+                            <a href='/post/delete/{{ post.post_id }}/'>
+                                <img src="{% static 'images/delete_icon.png' %}" class="icon" id="delete" />
+                            </a>
                             {% endif %}
                             {% if likevisible == 1 %}
-                                <div id="sub_postbox2b">
-                                    <div hidden> {{ is_current_user_like_post }} </div>
-                                    <div>
-                                        <a href="/post/like/{{ post.post_id }}">
-                                            <img src="{% static 'images/like_button.png' %}" class="icon" id="like"
-                                                 onclick="likebtn()"/>
-                                        </a>
-                                        {{ like_post_list_count }}
-                                    </div>
+                            <div id="sub_postbox2b">
+                                <div hidden> {{ is_current_user_like_post }} </div>
+                                <div>
+                                    <a href="/post/like/{{ post.post_id }}">
+                                        <img src="{% static 'images/like_button.png' %}" class="icon" id="like"
+                                            onclick="likebtn()" />
+                                    </a>
                                 </div>
+                                <span id="likeCount">{{ like_post_list_count }}</span>
+                            </div>
                             {% endif %}
-                        {% endif %}
-                    </div>
+                            {% endif %}
+                        </div>
 
+                    </div>
                 </div>
+                <div id="p3">{{ post.post_content }}</div>
             </div>
-            <div id="p3">{{ post.post_content }}</div>
-        </div>
-        <div id="commentbox">
-            {% for comment in comment_list %}
+            <div id="commentbox">
+                {% for comment in comment_list %}
                 <div id="sub_commentbox">
                     <div id="c1">{{ comment.created_by.username }}</div>
                     <div id="c2">{{ comment.created_at }}</div>
                     <div id="c3">{{ comment.comment }}</div>
                 </div>
-            {% endfor %}
-        </div>
-        <div id="create_commentbox">
-            {% if request.user.is_authenticated %}
+                {% endfor %}
+            </div>
+            <div id="create_commentbox">
+                {% if request.user.is_authenticated %}
                 {% include 'create_comment_form.html' %}
-            {% endif %}
+                {% endif %}
+            </div>
         </div>
     </div>
-</div>
 </body>
 
 </html>

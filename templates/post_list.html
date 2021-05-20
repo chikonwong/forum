@@ -43,19 +43,36 @@
         }
 
         #p1 {
-            font-family: 'Pangolin', cursive;
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
             font-size: 25pt;
-            color: #000000;
             padding-top: 0.5vw;
-            padding-right: 0.5vw;
             overflow-wrap: anywhere;
         }
+
+        #p1a {
+            width: 90%;
+            font-family: 'Pangolin', cursive;
+            color: #000000;
+        }
+
+        #p1b {
+            width: 100px;
+            font-family: 'Pangolin', cursive;
+            color: grey;
+        }
+
 
         #p2 {
             font-size: 15pt;
             text-align: right;
             padding-bottom: 0.5vw;
             padding-right: 0.5vw;
+        }
+
+        #p2 span {
+            color: blue;
         }
 
         #createDiv {
@@ -77,6 +94,11 @@
             background-color: rgba(255, 255, 255, 0.8);
         }
 
+        #likeBtn2 {
+            width: 32px;
+            height: 32px;
+        }
+
         @media only screen and (max-width: 1100px) {
             .sub_container {
                 width: 91vw;
@@ -89,32 +111,40 @@
             }
         }
     </style>
-    <script></script>
+    <script>
+
+    </script>
 </head>
 
 <body>
-<div class="container">
-    <div class="sub_container">
-        <h1>{{ channel_name }} post</h1>
-        {% if request.user.is_authenticated %}
+    <div class="container">
+        <div class="sub_container">
+            <h1>{{ channel_name }} post</h1>
+            {% if request.user.is_authenticated %}
             <a href="/post/create/{{ channel.channel_id }}/">
                 <div id="createDiv">new post +</div>
             </a>
-        {% endif %}
-        {% for post in post_view_list %}
+            {% endif %}
+            {% for post in post_view_list %}
             <ul id="post">
                 <a href='/post/{{ post.post_id }}/'>
                     <li>
-                        <div id="p1">{{ post.post_title }}</div>
-                        <div id="p1" >{{ post.like_count }}</div>
-                        <br/>
-                        <div id="p2">by {{ post.created_by }} || {{ post.created_at }}</div>
+                        <div id="p1">
+                            <div id="p1a">{{ post.post_title }}</div>
+                            <div id="p1b">
+                                <img src="{% static 'images/like_button2.png' %}" id="likeBtn2" />:
+                                {{ post.like_count }}
+                            </div>
+                        </div>
+                        <br />
+                        <div id="p2">by <span>{{ post.created_by }}</span> || {{ post.created_at }}</div>
+
                     </li>
                 </a>
             </ul>
-        {% endfor %}
+            {% endfor %}
+        </div>
     </div>
-</div>
 </body>
 
 </html>

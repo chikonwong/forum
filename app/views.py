@@ -43,7 +43,7 @@ def list_post(request, channel_name):
         post_like_count = 0
         post_view_list = []
         for post in post_list:
-            post_like_count = PostLike.objects.filter(post=post).count()
+            post_like_count = PostLike.objects.filter(post=post).filter(is_like_post=True).count()
             post_view_list.append({
                 'post_id': post.post_id,
                 'post_title': post.post_title,
